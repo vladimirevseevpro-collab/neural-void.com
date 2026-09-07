@@ -15,9 +15,7 @@ const APP_SHELL = [
 
 self.addEventListener("install", (event) => {
   self.skipWaiting();
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)),
-  );
+  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)));
 });
 
 self.addEventListener("activate", (event) => {
@@ -39,10 +37,7 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("message", (event) => {
-  if (
-    event.data &&
-    (event.data.type === "SKIP_WAITING" || event.data === "skipWaiting")
-  ) {
+  if (event.data && (event.data.type === "SKIP_WAITING" || event.data === "skipWaiting")) {
     self.skipWaiting();
   }
 });
