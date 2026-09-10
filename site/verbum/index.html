@@ -423,7 +423,7 @@
           <span class="hero-badge"><span class="dot"></span> <span data-lang="ru">100% Оффлайн • Vulkan GPU</span><span data-lang="en">100% Offline • Vulkan GPU</span></span>
           <span class="hero-badge version"><span data-lang="ru">Релиз v2.0.0 Production</span><span data-lang="en">v2.0.0 Production Release</span></span>
           <span class="hero-badge" style="border-color: rgba(0, 212, 245, 0.4); color: #00d4f5;"><span data-lang="ru">⚡ Joules &amp; Unsloth SFT</span><span data-lang="en">⚡ Joules &amp; Unsloth SFT</span></span>
-          <span class="hero-badge" style="border-color: rgba(52, 211, 153, 0.3); color: #34d399;"><span data-lang="ru">🌐 Синхронный перевод &lt;20мс</span><span data-lang="en">🌐 Sub-20ms Translation</span></span>
+          <span class="hero-badge" style="border-color: rgba(52, 211, 153, 0.3); color: #34d399;"><span data-lang="ru">⚡ GPU Инференс ~280мс</span><span data-lang="en">⚡ On-Device GPU ~280ms</span></span>
         </div>
 
         <h1 class="hero-title" data-lang="ru">
@@ -638,10 +638,10 @@
           <span data-lang="en">Continuous SFT Adaptation &amp; Instant Streaming Translation.</span>
         </h2>
         <p class="section-text" data-lang="ru">
-          В версии 2.0 Verbum перерос обычный движок диктовки. Теперь это самообучающаяся система на связке Google Joules + Unsloth с миллисекундным синхронным переводом и аппаратными акустическими ловушками тишины.
+          В версии 2.0 Verbum перерос обычный движок диктовки. Теперь это производительная локальная система на базе faster-whisper с потоковым переводом и аппаратными акустическими ловушками тишины.
         </p>
         <p class="section-text" data-lang="en">
-          In version 2.0, Verbum transcends standard voice dictation. Powered by Google Joules + Unsloth continuous adaptation, it delivers sub-20ms instant streaming translation and hardware-grade acoustic silence traps.
+          In version 2.0, Verbum transcends standard voice dictation. Powered by faster-whisper and hardware-optimized inference, it delivers real-time streaming translation and acoustic silence traps.
         </p>
       </div>
 
@@ -662,18 +662,18 @@
           </p>
         </div>
 
-        <!-- Card 2: Sub-20ms Synchronous Neural Streaming Translation -->
+        <!-- Card 2: On-Device GPU Neural Streaming Translation -->
         <div class="card glass reveal" style="border-color: rgba(52, 211, 153, 0.4); box-shadow: 0 10px 30px rgba(52, 211, 153, 0.08);">
           <div class="card-icon" style="background: rgba(52, 211, 153, 0.15); color: #34d399;">🌐</div>
           <h3 class="card-title" style="color: #34d399;">
-            <span data-lang="ru">Синхронный Стриминг-Перевод (&lt;20 мс)</span>
-            <span data-lang="en">Sub-20ms Neural Translation</span>
+            <span data-lang="ru">Потоковый Перевод в Реальном Времени</span>
+            <span data-lang="en">Real-Time Streaming Translation</span>
           </h3>
           <p class="card-text" data-lang="ru">
-            Мгновенный перевод живой речи с немецкого и английского на русский на лету. Архитектура спекулятивного префиксного стриминга (Wait-k) с рекордной задержкой <strong>менее 20 мс на CPU</strong> без ожидания конца фразы.
+            Мгновенный перевод живой речи с немецкого и английского на русский на лету. Архитектура спекулятивного префиксного стриминга (Wait-k) с непрерывным потоковым выводом токенов без ожидания конца длинной фразы.
           </p>
           <p class="card-text" data-lang="en">
-            True instant speech translation from German and English to Russian on the fly. Speculative prefix streaming (Wait-k policy) running directly on CPU at <strong>sub-20ms per token</strong> with zero wait-for-sentence lag.
+            True speech translation from German and English to Russian on the fly. Speculative prefix streaming (Wait-k policy) running directly on local hardware with continuous streaming output without waiting for full sentences.
           </p>
         </div>
 
@@ -700,10 +700,10 @@
             <span data-lang="en">Micro-SLM Prosody Cartridges v2</span>
           </h3>
           <p class="card-text" data-lang="ru">
-            Автономные легковесные картриджи для интонационной расстановки знаков препинания, вопросительных знаков и кавычек с ультра-низким оверхедом <strong>0.038 мс</strong> без обращения к тяжелым внешним LLM.
+            Автономные легковесные картриджи для интонационной расстановки знаков препинания, вопросительных знаков и кавычек с минимальным оверхедом <strong>&lt; 50 мс</strong> без обращения к тяжелым внешним LLM.
           </p>
           <p class="card-text" data-lang="en">
-            Hot-swappable micro-SLM cartridges for tone-aware punctuation, question marks, and syntax structure with ultra-low <strong>0.038ms overhead</strong> without calling heavy cloud LLMs.
+            Hot-swappable micro-SLM cartridges for tone-aware punctuation, question marks, and syntax structure with minimal on-device <strong>&lt; 50ms overhead</strong> without calling heavy cloud LLMs.
           </p>
         </div>
 
@@ -829,21 +829,21 @@
           <div class="card-icon">✨</div>
           <h3 class="card-title"><span data-lang="ru">Плавающий Glassmorphic HUD</span><span data-lang="en">Floating Glassmorphic HUD</span></h3>
           <p class="card-text" data-lang="ru">
-            Ультра-легкая капсула в стиле Windows 11 Mica Alt: живая звуковая волна, бейджи целевых профилей (<code>[CLI]</code>, <code>[CODE]</code>, <code>[DATEV]</code>) и прозрачный тайминг задержки (<code>⚡ 142ms</code>).
+            Ультра-легкая капсула в стиле Windows 11 Mica Alt: живая звуковая волна, бейджи целевых профилей (<code>[CLI]</code>, <code>[CODE]</code>, <code>[DATEV]</code>) и прозрачный тайминг задержки (<code>⚡ 280ms (GPU)</code>).
           </p>
           <p class="card-text" data-lang="en">
-            Ultra-sleek Windows 11 Mica Alt floating capsule: real-time audio waveform, dynamic profile badges (<code>[CLI]</code>, <code>[CODE]</code>, <code>[DATEV]</code>), and transparent latency HUD (<code>⚡ 142ms</code>).
+            Ultra-sleek Windows 11 Mica Alt floating capsule: real-time audio waveform, dynamic profile badges (<code>[CLI]</code>, <code>[CODE]</code>, <code>[DATEV]</code>), and transparent latency HUD (<code>⚡ 280ms (GPU)</code>).
           </p>
         </div>
 
         <div class="card glass reveal" style="border-color: rgba(0, 212, 245, 0.35); box-shadow: 0 0 25px rgba(0, 212, 245, 0.08);">
           <div class="card-icon" style="background: rgba(0, 212, 245, 0.15); color: var(--nv-accent);">⚡</div>
-          <h3 class="card-title" style="color: var(--nv-accent);"><span data-lang="ru">4x-HyperSpeed & Очистка Речи (38 мкс)</span><span data-lang="en">4x-HyperSpeed & Prose Cleaner (38µs)</span></h3>
+          <h3 class="card-title" style="color: var(--nv-accent);"><span data-lang="ru">4x-Speed & Локальная Очистка Речи</span><span data-lang="en">4x-Speed & On-Device Prose Cleaner</span></h3>
           <p class="card-text" data-lang="ru">
-            Специализированная 4-Tier микро-модель для подкастов и длинных войсов. Распознает речь на <strong>4x скорости</strong>, автоматически вырезает слова-паразиты (<em>«типа», «как бы», «эээ», «you know»</em>), схлопывает заикания и размечает реплики по ролям (<code>[Ведущий]</code> / <code>[Гость]</code>) с рекордной задержкой <strong>0.038 мс</strong>!
+            Специализированная локальная модель для подкастов и длинных войсов. Распознает речь на <strong>4x скорости воспроизведения</strong>, автоматически вырезает слова-паразиты (<em>«типа», «как бы», «эээ», «you know»</em>), схлопывает заикания и размечает реплики по ролям (<code>[Ведущий]</code> / <code>[Гость]</code>) полностью оффлайн.
           </p>
           <p class="card-text" data-lang="en">
-            Curriculum-distilled 4-Tier micro-model for podcasts and voice notes. Transcribes speech at <strong>4x speed</strong>, automatically removes spoken disfluencies (<em>"um", "like", "you know"</em>), fixes stutters, and attributes speaker roles (<code>[Host]</code> / <code>[Guest]</code>) in <strong>0.038 ms</strong>.
+            Curriculum-distilled local model for podcasts and voice notes. Transcribes speech at <strong>4x playback speed</strong>, automatically removes spoken disfluencies (<em>"um", "like", "you know"</em>), fixes stutters, and attributes speaker roles (<code>[Host]</code> / <code>[Guest]</code>) completely offline.
           </p>
         </div>
       </div>
@@ -959,7 +959,7 @@
               <td><span class="cross">✗</span> <span data-lang="ru">Нет</span><span data-lang="en">None</span></td>
             </tr>
             <tr>
-              <td><strong><span data-lang="ru">Синхронный стриминг-перевод (&lt;20 мс)</span><span data-lang="en">Instant Streaming Translation (&lt;20ms)</span></strong></td>
+              <td><strong><span data-lang="ru">Синхронный стриминг-перевод (Real-Time)</span><span data-lang="en">Real-Time Streaming Translation</span></strong></td>
               <td class="highlight"><span class="check">✓</span> <span data-lang="ru">Wait-k CPU стриминг</span><span data-lang="en">Wait-k CPU Streaming</span></td>
               <td><span class="cross">✗</span> <span data-lang="ru">1.5–3 сек (сеть)</span><span data-lang="en">1.5–3s latency</span></td>
               <td><span class="cross">✗</span> <span data-lang="ru">Нет</span><span data-lang="en">None</span></td>

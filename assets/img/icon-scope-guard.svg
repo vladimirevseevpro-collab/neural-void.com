@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- Neural Void Sprint Scope Guard Branded Icon -->
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0052CC"/>
+      <stop offset="100%" stop-color="#0747A6"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer Shield Badge -->
+  <path d="M24 3 L42 9 V22 C42 33.5 34.5 41.5 24 45 C13.5 41.5 6 33.5 6 22 V9 L24 3 Z" 
+        fill="url(#shieldGrad)" 
+        stroke="#00D4F5" 
+        stroke-width="2" 
+        stroke-linejoin="round"/>
+
+  <!-- Radar Scope Arcs -->
+  <!-- Outer Arc -->
+  <path d="M14 22 A10 10 0 0 1 34 22" 
+        fill="none" 
+        stroke="#00D4F5" 
+        stroke-width="2.2" 
+        stroke-linecap="round" 
+        opacity="0.9"/>
+
+  <!-- Middle Arc -->
+  <path d="M18 22 A6 6 0 0 1 30 22" 
+        fill="none" 
+        stroke="#FFFFFF" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        opacity="0.85"/>
+
+  <!-- Radar Sweep Line -->
+  <line x1="24" y1="22" x2="31" y2="15" 
+        stroke="#00D4F5" 
+        stroke-width="2" 
+        stroke-linecap="round"/>
+
+  <!-- Center Pulse Dot -->
+  <circle cx="24" cy="22" r="2.8" fill="#00D4F5"/>
+  <circle cx="24" cy="22" r="1.4" fill="#FFFFFF"/>
+</svg>

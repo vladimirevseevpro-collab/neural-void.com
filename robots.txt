@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /assets/raw/
+Disallow: /test/
+
+Sitemap: https://neural-void.com/sitemap.xml

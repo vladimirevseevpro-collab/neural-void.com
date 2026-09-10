@@ -8,3 +8,6 @@
 /jira-dlp-firewall    /jira-dlp-firewall/    301
 /security                /security/                301
 /atlassian               /atlassian/               301
+/lab                     /lab/                     301
+/lab/acoustic            /lab/acoustic/            301
+/lab/verbum              /lab/verbum/              301

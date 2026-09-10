@@ -4,26 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO — edit title & description to match current messaging -->
-  <title>Neural Void — AI-Native Product Lab</title>
-  <meta name="description" content="Neural Void builds AI-native digital products, branded engagement modules, and interactive experiences. Explore Foldwink and other concepts.">
+  <!-- SEO -->
+  <title>Neural Void — Independent Product Lab & Zero-Egress Digital Systems</title>
+  <meta name="description" content="Independent digital venture studio building zero-egress Jira Cloud governance applications, on-device speech intelligence, and mindful interactive digital products.">
+  <link rel="canonical" href="https://neural-void.com/">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Neural Void — AI-Native Product Lab">
-  <meta property="og:description" content="AI-native products, branded systems, and interactive experiences — designed, prototyped, and launched as real products.">
+  <meta property="og:title" content="Neural Void — Independent Product Lab & Zero-Egress Digital Systems">
+  <meta property="og:description" content="Zero-egress Atlassian Cloud governance, on-device local voice intelligence, and mindful digital products — engineered to ship.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://neural-void.com">
+  <meta property="og:url" content="https://neural-void.com/">
   <meta property="og:image" content="https://neural-void.com/assets/img/og-cover.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Neural Void — Product Lab">
+  <meta name="twitter:description" content="Zero-data-egress Jira governance, local speech AI, and mindful interactive tools.">
+  <meta name="twitter:image" content="https://neural-void.com/assets/img/og-cover.png">
 
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 
-  <!-- Fonts — Inter for UI, JetBrains Mono for labels -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/assets/css/style.css">
   <style>
+    /* Language pill switcher */
     .lang-switcher-pill {
       display: inline-flex;
       background: var(--nv-surface-hi);
@@ -49,31 +57,166 @@
       color: var(--nv-bg);
       font-weight: 700;
     }
-    .badge-certified {
-      display: inline-flex;
+
+    /* Hero interactive widget */
+    .hero-demo-card {
+      background: rgba(14, 14, 23, 0.95);
+      border: 1px solid rgba(0, 212, 245, 0.35);
+      border-radius: var(--nv-radius);
+      padding: 24px;
+      margin-top: 36px;
+      max-width: 640px;
+      box-shadow: 0 12px 36px rgba(0, 212, 245, 0.08);
+      text-align: left;
+    }
+    .hero-demo-header {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 5px;
-      background: rgba(0, 212, 245, 0.1);
-      border: 1px solid rgba(0, 212, 245, 0.3);
-      color: var(--nv-accent);
-      font-size: 0.7rem;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .hero-demo-title {
+      font-family: var(--nv-font-mono);
+      font-size: 0.85rem;
+      color: var(--nv-white);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-demo-status {
+      font-family: var(--nv-font-mono);
+      font-size: 0.75rem;
       padding: 3px 8px;
       border-radius: 4px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .hero-demo-status.warning {
+      background: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+    .hero-demo-status.balanced {
+      background: rgba(52, 211, 153, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+    .hero-demo-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .hero-demo-stat {
+      background: rgba(8, 8, 13, 0.7);
+      border: 1px solid var(--nv-border);
+      border-radius: var(--nv-radius-sm);
+      padding: 10px 12px;
+    }
+    .hero-demo-stat-label {
       font-family: var(--nv-font-mono);
+      font-size: 0.7rem;
+      color: var(--nv-text-dim);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+    .hero-demo-stat-value {
+      font-family: var(--nv-font-mono);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--nv-white);
+    }
+    .hero-demo-action-btn {
+      width: 100%;
+      background: rgba(0, 212, 245, 0.12);
+      border: 1px solid rgba(0, 212, 245, 0.4);
+      color: var(--nv-accent);
+      padding: 10px 16px;
+      border-radius: var(--nv-radius-sm);
+      font-family: var(--nv-font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .hero-demo-action-btn:hover {
+      background: var(--nv-accent);
+      color: var(--nv-bg);
+    }
+
+    /* Category headers in catalog */
+    .catalog-category {
+      margin-top: 56px;
+      margin-bottom: 24px;
+    }
+    .catalog-category:first-of-type {
+      margin-top: 36px;
+    }
+    .catalog-category-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--nv-border);
+      padding-bottom: 12px;
+    }
+    .catalog-category-tag {
+      font-family: var(--nv-font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--nv-accent);
+    }
+    .catalog-category-title {
+      font-size: 1.25rem;
+      color: var(--nv-white);
+      font-weight: 700;
+    }
+
+    /* Contact routes */
+    .contact-routes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 36px;
+      text-align: left;
+    }
+    .contact-card {
+      background: var(--nv-surface);
+      border: 1px solid var(--nv-border);
+      border-radius: var(--nv-radius);
+      padding: 24px;
+      transition: border-color var(--nv-transition);
+    }
+    .contact-card:hover {
+      border-color: rgba(0, 212, 245, 0.4);
+    }
+    .contact-card h4 {
+      font-size: 1rem;
+      color: var(--nv-white);
+      margin-bottom: 8px;
+    }
+    .contact-card p {
+      font-size: 0.85rem;
+      color: var(--nv-text-dim);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .contact-card a {
+      font-family: var(--nv-font-mono);
+      font-size: 0.85rem;
+      color: var(--nv-accent);
+      text-decoration: none;
       font-weight: 600;
     }
-    .badge-beta {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: rgba(128, 102, 255, 0.15);
-      border: 1px solid rgba(128, 102, 255, 0.4);
-      color: #b39ddb;
-      font-size: 0.7rem;
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-family: var(--nv-font-mono);
-      font-weight: 600;
+    .contact-card a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -85,15 +228,15 @@
       <nav class="nav">
         <a href="/" class="nav-logo">NEURAL<span>VOID</span></a>
         <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="/atlassian/" style="color: var(--nv-accent); font-weight: 600; background: rgba(0, 212, 245, 0.08); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(0, 212, 245, 0.2);">Atlassian Suite ⚡</a></li>
-          <li><a href="#divisions">Divisions</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="/atlassian/">Atlassian Suite</a></li>
           <li><a href="/verbum/">Verbum</a></li>
-          <li><a href="#foldwink">Foldwink</a></li>
-          <li><a href="/security/">Security</a></li>
-          <li><a href="#contact" class="btn btn-ghost nav-cta">Get in Touch</a></li>
+          <li><a href="/foldwink/">Foldwink</a></li>
+          <li><a href="/security/">Security & Trust</a></li>
+          <li><a href="/support/">Support & SLA</a></li>
+          <li><a href="#contact" class="btn btn-ghost nav-cta" style="padding: 6px 16px;">Request Pilot</a></li>
         </ul>
-        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
       </nav>
     </div>
   </header>
@@ -105,139 +248,56 @@
     <div class="container">
       <div class="hero-content">
         <h1 class="hero-title">Where intelligent concepts become <span class="accent">productized reality.</span></h1>
-        <p class="hero-sub">AI-native products, zero-egress Atlassian Cloud governance systems, and interactive digital experiences — designed, prototyped, and shipped.</p>
+        <p class="hero-sub">
+          Zero-data-egress Atlassian Cloud governance systems, local-first on-device speech intelligence, and mindful interactive digital products — engineered to ship.
+        </p>
         <div class="hero-actions">
-          <a href="/atlassian/" class="btn btn-primary">Enter Atlassian Division ⚡</a>
-          <a href="#divisions" class="btn btn-secondary">Explore Divisions</a>
-          <a href="/security/" class="btn btn-ghost">Security & Trust</a>
+          <a href="#products" class="btn btn-primary">Explore Products ↓</a>
+          <a href="#contact" class="btn btn-secondary">Request Private Pilot ⚡</a>
+          <a href="/security/" class="btn btn-ghost">Security & Architecture</a>
         </div>
+
+        <!-- Real Product Interface Preview: Scope Guard 1-In-1-Out Mechanism -->
+        <div class="hero-demo-card">
+          <div class="hero-demo-header">
+            <div class="hero-demo-title">
+              <span>🛡️ Sprint Scope Guard</span>
+              <span style="color: var(--nv-text-dim); font-size: 0.75rem;">• Live Board Sentinel</span>
+            </div>
+            <div id="demo-badge" class="hero-demo-status warning">⚠️ Scope Creep +25%</div>
+          </div>
+          <div class="hero-demo-stats">
+            <div class="hero-demo-stat">
+              <div class="hero-demo-stat-label">Baseline</div>
+              <div class="hero-demo-stat-value">32 SP</div>
+            </div>
+            <div class="hero-demo-stat">
+              <div class="hero-demo-stat-label">Injected</div>
+              <div id="demo-injected" class="hero-demo-stat-value" style="color: #ef4444;">+8 SP</div>
+            </div>
+            <div class="hero-demo-stat">
+              <div class="hero-demo-stat-label">Forecast</div>
+              <div id="demo-forecast" class="hero-demo-stat-value" style="color: #f59e0b;">-2 Days Risk</div>
+            </div>
+          </div>
+          <button id="demo-btn" class="hero-demo-action-btn" onclick="toggleDemoSwap()">
+            <span>⚡ Run 1-Click Scope Swap («1-In-1-Out»)</span>
+          </button>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ========== ABOUT ========== -->
-  <section class="section" id="about">
-    <div class="container reveal">
-      <span class="section-label">What is Neural Void</span>
-      <h2 class="section-title">A curated lab of productized ideas.</h2>
-      <p class="section-text">
-        AI, interaction design, and enterprise-grade cloud packaging — combined into launch-ready digital products.
-        Every tool we build is engineered for high performance, zero data egress, and seamless team workflow integration.
-      </p>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-  <!-- ========== STUDIO DIVISIONS (NEW MULTI-DIVISION HUB) ========== -->
-  <section class="section" id="divisions" style="background: rgba(14, 14, 23, 0.4);">
-    <div class="container reveal">
-      <span class="section-label">Studio Architecture</span>
-      <h2 class="section-title">Specialized Product Divisions</h2>
-      <p class="section-text">
-        Neural Void operates as an independent venture studio and software holding, organizing vertical enterprise software alongside high-craft interactive consumer applications.
-      </p>
-
-      <div class="card-grid" style="margin-top: 36px;">
-        <!-- Division 1: Atlassian Enterprise Cloud -->
-        <div class="card glass reveal" style="border: 1px solid rgba(0, 212, 245, 0.35); background: rgba(14, 14, 23, 0.9); box-shadow: 0 8px 32px rgba(0, 212, 245, 0.08);">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="card-status live">Division 01 • Enterprise</span>
-            <span class="badge-certified">⚡ Official Partner</span>
-          </div>
-          <h3 class="card-title" style="color: #fff; font-size: 1.35rem;">Atlassian Cloud Suite</h3>
-          <p class="card-text">
-            Forge-native governance, agile metrics, and Data Loss Prevention (DLP) apps built exclusively for Jira & JSM with 100% Zero Data Egress.
-          </p>
-          <ul style="list-style: none; margin: 16px 0; color: var(--nv-text-dim); font-size: 0.85rem; font-family: var(--nv-font-mono);">
-            <li style="margin-bottom: 6px;">🛡️ <strong>Sprint Scope Guard & Agile JQL Pro</strong> (Live)</li>
-            <li style="margin-bottom: 6px;">🔒 <strong>IntraGuard Zero-Egress DLP Firewall</strong></li>
-            <li style="margin-bottom: 6px;">✅ <strong>Smart Defaults & Definition of Done</strong></li>
-            <li style="margin-bottom: 6px;">📬 <strong>JSM Outgoing Email Delivery Audit</strong></li>
-          </ul>
-          <div style="margin-top: 20px;">
-            <a href="/atlassian/" class="btn btn-primary" style="width: 100%; justify-content: center; display: flex;">Dedicated Atlassian Hub →</a>
-          </div>
-        </div>
-
-        <!-- Division 2: AI Typing & Speech Intelligence -->
-        <div class="card glass reveal" style="border: 1px solid rgba(168, 85, 247, 0.25); background: rgba(14, 14, 23, 0.9);">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="card-status in-dev">Division 02 • Productivity</span>
-            <span class="badge-beta">🧪 Speech AI</span>
-          </div>
-          <h3 class="card-title" style="color: #fff; font-size: 1.35rem;">Verbum Speech & Typing HUD</h3>
-          <p class="card-text">
-            Zero-latency neural dictation, floating glassmorphic pill HUD, and keyboard productivity system for rapid technical writing and notes.
-          </p>
-          <ul style="list-style: none; margin: 16px 0; color: var(--nv-text-dim); font-size: 0.85rem; font-family: var(--nv-font-mono);">
-            <li style="margin-bottom: 6px;">⚡ Floating Glassmorphic Pill HUD</li>
-            <li style="margin-bottom: 6px;">↩️ 1-Keystroke Instant Undo</li>
-            <li style="margin-bottom: 6px;">🎙️ Zero-Egress Local Voice Processing</li>
-            <li style="margin-bottom: 6px;">🌐 Trilingual Macro Expansion (EN/DE/RU)</li>
-          </ul>
-          <div style="margin-top: 20px;">
-            <a href="/verbum/" class="btn btn-secondary" style="width: 100%; justify-content: center; display: flex;">Explore Verbum →</a>
-          </div>
-        </div>
-
-        <!-- Division 3: Interactive & Consumer Games -->
-        <div class="card glass reveal" style="border: 1px solid rgba(16, 185, 129, 0.25); background: rgba(14, 14, 23, 0.9);">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="card-status live">Division 03 • Interactive</span>
-            <span class="badge-certified">🎮 Consumer Lab</span>
-          </div>
-          <h3 class="card-title" style="color: #fff; font-size: 1.35rem;">Foldwink Tactile Games</h3>
-          <p class="card-text">
-            Mindful tactile puzzle experiences combining paper-folding physics, haptic ASMR audio design, and spatial geometry mechanics.
-          </p>
-          <ul style="list-style: none; margin: 16px 0; color: var(--nv-text-dim); font-family: var(--nv-font-mono); font-size: 0.85rem;">
-            <li style="margin-bottom: 6px;">📄 Tactile ASMR Origami Engine</li>
-            <li style="margin-bottom: 6px;">📱 PWA Offline-First Architecture</li>
-            <li style="margin-bottom: 6px;">🧩 Multi-Language Puzzle Packs</li>
-            <li style="margin-bottom: 6px;">✨ Web & Mobile Touch Optimized</li>
-          </ul>
-          <div style="margin-top: 20px;">
-            <a href="/foldwink/" class="btn btn-secondary" style="width: 100%; justify-content: center; display: flex;">Play Foldwink →</a>
-          </div>
-        </div>
-
-        <!-- Division 4: Incubating Platforms -->
-        <div class="card glass reveal" style="border: 1px dashed var(--nv-border-hi); background: rgba(12, 12, 18, 0.5);">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span style="font-family: var(--nv-font-mono); font-size: 0.72rem; color: var(--nv-text-muted);">Division 04 • Incubation</span>
-            <span style="font-family: var(--nv-font-mono); font-size: 0.72rem; color: var(--nv-accent);">Upcoming</span>
-          </div>
-          <h3 class="card-title" style="color: var(--nv-text-dim); font-size: 1.35rem;">B2B Commerce & Platform Extensions</h3>
-          <p class="card-text" style="color: var(--nv-text-muted);">
-            Modular multi-platform adapters for Shopify, Zendesk, and Miro developer platforms currently in architectural design and compliance review.
-          </p>
-          <ul style="list-style: none; margin: 16px 0; color: var(--nv-text-muted); font-size: 0.85rem; font-family: var(--nv-font-mono);">
-            <li style="margin-bottom: 6px;">📦 Shopify Inventory & Invoice Sync</li>
-            <li style="margin-bottom: 6px;">🚨 Zendesk SLA & Tone Sentiment Guard</li>
-            <li style="margin-bottom: 6px;">⚙️ Universal Micro-SaaS Core Engine</li>
-          </ul>
-          <div style="margin-top: 20px;">
-            <a href="/support/" class="btn btn-ghost" style="width: 100%; justify-content: center; display: flex; opacity: 0.8;">Partner Inquiries →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ========== ATLASSIAN JIRA SUITE (NEW) ========== -->
-  <section class="section" id="jira-suite" style="background: linear-gradient(180deg, rgba(8,8,13,0) 0%, rgba(12,12,20,0.8) 50%, rgba(8,8,13,0) 100%);">
+  <!-- ========== UNIFIED PRODUCT CATALOG (P0/P1) ========== -->
+  <section class="section" id="products">
     <div class="container">
-      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;" class="reveal">
+      <div class="reveal" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
         <div>
-          <span class="section-label">Atlassian Marketplace Partner</span>
-          <h2 class="section-title">Neural Void Jira Cloud Suite</h2>
-          <div style="margin-top: 8px;"><a href="/atlassian/" style="color: var(--nv-accent); font-family: var(--nv-font-mono); font-size: 0.85rem; text-decoration: none; font-weight: 600;">Visit Dedicated Division Hub & Trust Center &rarr;</a></div>
-          <p class="section-text">Enterprise-grade, zero-data-egress Forge applications designed to protect agile velocity, automate compliance, and streamline team workflows.</p>
+          <span class="section-label">Product Directory</span>
+          <h2 class="section-title">Shipping Software & Systems</h2>
+          <p class="section-text">Every tool has a clear audience, explicit limitations, and honest deployment status.</p>
         </div>
-        
-        <!-- Interactive Multi-Language Switcher for Apps Showcase -->
         <div>
           <div class="lang-switcher-pill">
             <button class="lang-pill-btn active" data-lang-btn="en" onclick="switchSuiteLang('en')">🇬🇧 English</button>
@@ -247,118 +307,328 @@
         </div>
       </div>
 
-      <div class="card-grid">
-        <!-- App 1: Sprint Scope Guard -->
-        <div class="card glass reveal" style="border: 1px solid rgba(0, 212, 245, 0.25); background: rgba(17, 17, 24, 0.85); box-shadow: 0 8px 32px rgba(0, 212, 245, 0.05);">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="card-status live">Ready for Release</span>
-            <span class="badge-certified">🛡️ Runs on Atlassian</span>
-          </div>
-          <h3 class="card-title" style="color: var(--nv-white); font-size: 1.25rem;">Sprint Scope Guard & Agile JQL Pro</h3>
-          
-          <div class="suite-lang-block" data-lang="en">
-            <p class="card-text">
-              Real-time Scrum Scope Creep Sentinel. Locks planning baselines, predicts goal blowout dates via inflation velocity, balances capacity with <strong>1-Click Smart Scope Swap («1-In-1-Out»)</strong>, auto-compiles AI Retro reports for Confluence, and supercharges Jira with custom JQL functions.
-            </p>
-            <div style="margin-top: 14px; font-size: 0.8rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
-              ⚡ 0ms SWR Cache • Trilingual UI (DE/EN/RU) • SOC2 & GDPR Ready
+      <!-- CATEGORY 1: ENTERPRISE CLOUD GOVERNANCE (ATLASSIAN FORGE) -->
+      <div class="catalog-category reveal">
+        <div class="catalog-category-header">
+          <span class="catalog-category-tag">Category 01</span>
+          <h3 class="catalog-category-title">Enterprise Cloud Governance & Security (Jira Cloud)</h3>
+        </div>
+
+        <div class="card-grid">
+          <!-- App 1: Sprint Scope Guard -->
+          <div class="card glass">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <span class="card-status review">Marketplace Review In Progress</span>
+              <span style="font-family: var(--nv-font-mono); font-size: 0.72rem; color: var(--nv-text-dim);">Jira Cloud Forge</span>
+            </div>
+            <h3 class="card-title">Sprint Scope Guard & Agile JQL Pro</h3>
+            <div class="suite-lang-block" data-lang="en">
+              <p class="card-text">
+                Real-time Scrum scope creep radar. Locks commitment baselines, forecasts goal blowout dates, balances team capacity via <strong>1-Click Scope Swap («1-In-1-Out»)</strong>, and provides custom JQL functions for deep sprint queries.
+              </p>
+            </div>
+            <div class="suite-lang-block" data-lang="de" style="display: none;">
+              <p class="card-text">
+                Echtzeit-Wächter gegen Scope Creep. Sperrt Planungs-Baselines, prognostiziert Zielabbruch-Tage, gleicht Teamkapazitäten mit <strong>1-Klick Smart Scope Swap</strong> aus und erweitert Jira um benutzerdefinierte JQL-Funktionen.
+              </p>
+            </div>
+            <div class="suite-lang-block" data-lang="ru" style="display: none;">
+              <p class="card-text">
+                Радар контроля раздувания скоупа спринта в реальном времени. Фиксирует плановый Baseline, предсказывает срыв целей, восстанавливает баланс через <strong>1-Click Scope Swap («1 вошла — 1 вышла»)</strong> и добавляет кастомный JQL.
+              </p>
+            </div>
+            <div style="margin-top: 12px; font-size: 0.78rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
+              Audience: Scrum Masters & Agile POs • Instant SWR Cache • Zero External Egress
+            </div>
+            <div style="margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap;">
+              <a href="/sprint-scope-guard/" class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.8rem;">Product Overview &rarr;</a>
+              <a href="mailto:pilot@neural-void.com?subject=Sprint%20Scope%20Guard%20Pilot%20Request" class="btn btn-ghost" style="padding: 6px 14px; font-size: 0.8rem;">Request Private Pilot</a>
             </div>
           </div>
 
-          <div class="suite-lang-block" data-lang="de" style="display: none;">
-            <p class="card-text">
-              Echtzeit-Wächter gegen Scope Creep. Sperrt Planungs-Baselines, prognostiziert Zielabbruch-Tage, gleicht Teamkapazitäten mit <strong>1-Klick Smart Scope Swap (1-In-1-Out)</strong> aus, erstellt Markdown-Retro-Berichte für Confluence und erweitert Jira um leistungsstarke JQL-Befehle.
-            </p>
-            <div style="margin-top: 14px; font-size: 0.8rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
-              ⚡ 0ms SWR Cache • Dreisprachig (DE/EN/RU) • SOC2 & DSGVO Konform
+          <!-- App 2: IntraGuard DLP Firewall -->
+          <div class="card glass">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <span class="card-status beta">Private Beta / Pilot</span>
+              <span style="font-family: var(--nv-font-mono); font-size: 0.72rem; color: var(--nv-text-dim);">Jira Cloud Forge</span>
+            </div>
+            <h3 class="card-title">IntraGuard Zero-Egress DLP Firewall</h3>
+            <div class="suite-lang-block" data-lang="en">
+              <p class="card-text">
+                Prevents accidental credential, API key, and PII leaks in Jira descriptions, comments, and attachments. Scans via high-entropy heuristics and regex patterns inside the customer's isolated Forge tenant.
+              </p>
+            </div>
+            <div class="suite-lang-block" data-lang="de" style="display: none;">
+              <p class="card-text">
+                Verhindert versehentliche Leaks von API-Keys, Zugangsdaten und personenbezogenen Daten in Jira-Tickets und Anhängen. Prüft Inhalte vollständig innerhalb des isolierten Atlassian Forge Mandanten.
+              </p>
+            </div>
+            <div class="suite-lang-block" data-lang="ru" style="display: none;">
+              <p class="card-text">
+                Перехватчик утечек паролей, API-ключей и персональных данных (PII) в описаниях, комментариях и файлах тикетов Jira Cloud. 100% локальное сканирование внутри песочницы Forge без передачи наружу.
+              </p>
+            </div>
+            <div style="margin-top: 12px; font-size: 0.78rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
+              Audience: DevSecOps & Jira Admins • Forge KVS Storage • 10k Fuzzing Passed
+            </div>
+            <div style="margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap;">
+              <a href="/jira-dlp-firewall/" class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.8rem;">DLP Specifications &rarr;</a>
+              <a href="mailto:pilot@neural-void.com?subject=IntraGuard%20Pilot%20Request" class="btn btn-ghost" style="padding: 6px 14px; font-size: 0.8rem;">Request Pilot</a>
             </div>
           </div>
 
-          <div class="suite-lang-block" data-lang="ru" style="display: none;">
-            <p class="card-text">
-              Радар контроля раздувания скоупа спринта. Фиксирует плановый Baseline, предсказывает день срыва целей спринта, восстанавливает баланс через <strong>1-Click Smart Scope Swap («1 вошла — 1 вышла»)</strong>, компилирует ретро-отчеты для Confluence и дает кастомные JQL-функции.
-            </p>
-            <div style="margin-top: 14px; font-size: 0.8rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
-              ⚡ Турбо 0мс SWR • Полная поддержка DE/EN/RU • Безопасность без утечки данных
+          <!-- App 3: Smart Defaults & DoD Guard -->
+          <div class="card glass">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <span class="card-status beta">Public Beta</span>
+              <span style="font-family: var(--nv-font-mono); font-size: 0.72rem; color: var(--nv-text-dim);">Jira Cloud Forge</span>
+            </div>
+            <h3 class="card-title">Smart Defaults & DoD Guard</h3>
+            <div class="suite-lang-block" data-lang="en">
+              <p class="card-text">
+                Enforces Definition of Done checklists directly in the issue view. Automatically injects standard descriptions by issue type and blocks premature workflow transitions to Done until all checklist gates pass.
+              </p>
+            </div>
+            <div class="suite-lang-block" data-lang="de" style="display: none;">
+              <p class="card-text">
+                Erzwingt Definition of Done Checklisten direkt in der Vorgangsansicht. Füllt Vorgangsbeschreibungen automatisch nach Typ aus und blockiert Übergänge zu „Fertig“, bis alle Qualitäts-Kriterien erfüllt sind.
+              </p>
+            </div>
+            <div class="suite-lang-block" data-lang="ru" style="display: none;">
+              <p class="card-text">
+                Автоматизация стандартов качества Definition of Done (DoD). Встраивает интерактивный чек-лист в тикет и блокирует закрытие задачи до подтверждения всех обязательных критериев приёмки.
+              </p>
+            </div>
+            <div style="margin-top: 12px; font-size: 0.78rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
+              Audience: Delivery & QA Leads • Workflow Gate Validator • Project Settings
+            </div>
+            <div style="margin-top: 18px;">
+              <a href="/smart-defaults-dod/" class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.8rem;">DoD Guard Details &rarr;</a>
             </div>
           </div>
 
-          <div style="margin-top: 16px;">
-            <a href="/sprint-scope-guard/" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; font-size: 0.8rem;">
-              <span>Scope Guard Docs & Live Demo &rarr;</span>
-            </a>
+          <!-- App 4: JSM Email Delivery Audit -->
+          <div class="card glass">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <span class="card-status dev">In Development</span>
+              <span style="font-family: var(--nv-font-mono); font-size: 0.72rem; color: var(--nv-text-dim);">Jira Service Desk</span>
+            </div>
+            <h3 class="card-title">JSM Outgoing Email Audit Trail</h3>
+            <div class="suite-lang-block" data-lang="en">
+              <p class="card-text">
+                Provides forensic outgoing notification audit records for Jira Service Management customer tickets. Inspect delivery statuses, SMTP response codes, recipient timestamps, and export CSV audit logs for compliance audits.
+              </p>
+            </div>
+            <div class="suite-lang-block" data-lang="de" style="display: none;">
+              <p class="card-text">
+                Bietet lückenlose Prüfpfade für ausgehende Benachrichtigungen in Jira Service Management. Überwachen Sie Zustellstatus, SMTP-Antwortcodes und exportieren Sie CSV-Prüfprotokolle für Compliance-Audits.
+              </p>
+            </div>
+            <div class="suite-lang-block" data-lang="ru" style="display: none;">
+              <p class="card-text">
+                Аудит исходящих email-уведомлений для тикетов Jira Service Management. Фиксирует статус доставки, SMTP-ответы и временные метки с возможностью экспорта CSV-дампов для подтверждения SLA.
+              </p>
+            </div>
+            <div style="margin-top: 12px; font-size: 0.78rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
+              Audience: Support Desk Leads • Context Tab • CSV / JSON Export
+            </div>
+            <div style="margin-top: 18px;">
+              <a href="mailto:pilot@neural-void.com?subject=JSM%20Audit%20Waitlist" class="btn btn-ghost" style="padding: 6px 14px; font-size: 0.8rem;">Join Waitlist &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 2: PERSONAL PRODUCTIVITY & LOCAL INTELLIGENCE -->
+      <div class="catalog-category reveal">
+        <div class="catalog-category-header">
+          <span class="catalog-category-tag">Category 02</span>
+          <h3 class="catalog-category-title">Personal Productivity & On-Device Speech</h3>
+        </div>
+
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+          <div class="card glass" style="border: 1px solid rgba(168, 85, 247, 0.35); background: rgba(14, 14, 23, 0.9);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+              <span class="card-status live">Available • v2.0.0 Production</span>
+              <span style="font-family: var(--nv-font-mono); font-size: 0.72rem; color: #c084fc;">Windows 11 Local App</span>
+            </div>
+            <h3 class="card-title" style="font-size: 1.35rem;">Verbum Speech & Voice Typing Engine</h3>
+            <p class="card-text">
+              100% on-device local voice dictation designed specifically for engineers and technical documentation. Dictate commands, code comments, and notes with mixed technical vocabulary without manual keyboard layout switching. Single-pass latency ~250–400ms on local GPU (Vulkan/CUDA) or ~600–900ms on 8-core CPU. Features a floating glassmorphic HUD capsule, 1-keystroke instant undo, and local term glossary.
+            </p>
+            <div style="margin-top: 14px; font-size: 0.8rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
+              ⚡ Verified Benchmarks: RTX 4080 (280ms) / 780M (390ms) / Ryzen 7 CPU (740ms) • Zero Cloud Audio Egress
+            </div>
+            <div style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="/verbum/" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem;">Download v2.0.0 & Specs &rarr;</a>
+              <a href="/lab/acoustic/" class="btn btn-ghost" style="padding: 8px 18px; font-size: 0.85rem;">Interactive Acoustic Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 3: MINDFUL INTERACTIVE GAMES -->
+      <div class="catalog-category reveal">
+        <div class="catalog-category-header">
+          <span class="catalog-category-tag">Category 03</span>
+          <h3 class="catalog-category-title">Interactive & Mindful Gaming</h3>
+        </div>
+
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+          <div class="card glass" style="border: 1px solid rgba(52, 211, 153, 0.35); background: rgba(14, 14, 23, 0.9);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+              <span class="card-status live">Available • Daily Puzzle Board</span>
+              <span style="font-family: var(--nv-font-mono); font-size: 0.72rem; color: #34d399;">PWA Offline-First</span>
+            </div>
+            <h3 class="card-title" style="font-size: 1.35rem;">Foldwink — Daily 4×4 Grouping Puzzle</h3>
+            <p class="card-text">
+              A focused, daily mental reset game designed for phone and desktop. Find four hidden thematic categories in sixteen cards with only four mistakes to spare. Includes tactical Wink hints, offline PWA play via Service Worker, procedural WebAudio sound synthesis, and multi-language daily boards (English, Deutsch, Русский). Completely private: no user accounts, zero trackers, progress saved locally on device.
+            </p>
+            <div style="margin-top: 14px; font-size: 0.8rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
+              🎯 2–5 min daily session • Trilingual (EN/DE/RU) • LocalStorage Only • Zero Ads
+            </div>
+            <div style="margin-top: 20px;">
+              <a href="/foldwink/" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.85rem;">Play Today's Board &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 4: APPLIED RESEARCH & LAB EXPERIMENTS -->
+      <div class="catalog-category reveal">
+        <div class="catalog-category-header">
+          <span class="catalog-category-tag">Category 04</span>
+          <h3 class="catalog-category-title">Applied Research & Experimental Systems (Lab)</h3>
+        </div>
+
+        <div class="card-grid">
+          <div class="card glass">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <span class="card-status lab">Experimental PWA</span>
+              <span style="font-family: var(--nv-font-mono); font-size: 0.72rem; color: var(--nv-text-dim);">Mobile Geolocation</span>
+            </div>
+            <h3 class="card-title">NULL//FIELD</h3>
+            <p class="card-text">
+              An exploratory mobile field experience for locating and clearing playful sonic anomalies through physical device movement, orientation compass, and directional audio.
+            </p>
+            <div style="margin-top: 18px;">
+              <a href="https://nullfield.neural-void.com/" target="_blank" rel="noopener" class="card-link">Open NULL//FIELD ↗</a>
+            </div>
+          </div>
+
+          <div class="card glass">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <span class="card-status lab">Experimental PWA</span>
+              <span style="font-family: var(--nv-font-mono); font-size: 0.72rem; color: var(--nv-text-dim);">Urban Observation</span>
+            </div>
+            <h3 class="card-title">MOIRÉ</h3>
+            <p class="card-text">
+              An iPhone-first walking and observation experiment. Players seal symbolic choices before their journey, follow micro attention missions, and record exact, near, and missed reality echoes.
+            </p>
+            <div style="margin-top: 18px;">
+              <a href="https://moire.neural-void.com/" target="_blank" rel="noopener" class="card-link">Open MOIRÉ ↗</a>
+            </div>
+          </div>
+
+          <div class="card glass">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <span class="card-status lab">R&D Workbench</span>
+              <span style="font-family: var(--nv-font-mono); font-size: 0.72rem; color: var(--nv-text-dim);">Web Audio</span>
+            </div>
+            <h3 class="card-title">Acoustic Intelligence Lab</h3>
+            <p class="card-text">
+              Autonomous audio workstation separating broadcast speech enhancement from deep forensic voice reconstruction under sub-zero SNR conditions (fan hum, mechanical clutter).
+            </p>
+            <div style="margin-top: 18px;">
+              <a href="/lab/" class="card-link">Open Acoustic Lab &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORY 5: EXTERNAL PRODUCTION CASE -->
+      <div class="catalog-category reveal">
+        <div class="catalog-category-header">
+          <span class="catalog-category-tag">Category 05</span>
+          <h3 class="catalog-category-title">External Production Case Studies</h3>
+        </div>
+
+        <div class="card-grid" style="grid-template-columns: 1fr;">
+          <div class="card glass" style="border: 1px solid rgba(128, 102, 255, 0.25); background: rgba(14, 14, 23, 0.75);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+              <span class="card-status external">External Case Study</span>
+              <span style="font-family: var(--nv-font-mono); font-size: 0.72rem; color: #b39ddb;">Production B2B SaaS</span>
+            </div>
+            <h3 class="card-title">WurfKit — German Breeder Operations Platform</h3>
+            <p class="card-text">
+              A specialized vertical workflow platform engineered for certified dog breeders in Germany, Austria, and Switzerland. Handles full litter lifecycle tracking, veterinary vaccination schedules, puppy reservation pipelines, and automated generation of legally compliant VDH/FCI purchase contracts. Proof of vertical product engineering applied to real operational challenges.
+            </p>
+            <div style="margin-top: 14px; font-size: 0.8rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
+              Stack: Next.js 15 • Supabase • Tailwind • PDF Generation Engine • Live at wurfkit.de
+            </div>
+            <div style="margin-top: 18px;">
+              <a href="https://wurfkit.de/" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 6px 16px; font-size: 0.8rem;">Visit Live Platform at WurfKit.de ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ========== ENGINEERING PRINCIPLES (P1) ========== -->
+  <section class="section" id="principles">
+    <div class="container reveal">
+      <span class="section-label">Architecture</span>
+      <h2 class="section-title">Core Engineering Principles</h2>
+      <p class="section-text">
+        Every system we build adheres to strict operational guarantees rather than marketing abstractions.
+      </p>
+
+      <div class="card-grid" style="margin-top: 36px;">
+        <div class="card glass">
+          <div style="font-size: 1.5rem; margin-bottom: 12px;">🔒</div>
+          <h3 class="card-title">Zero Data Egress by Design</h3>
+          <p class="card-text">
+            Enterprise apps execute entirely inside isolated Atlassian Forge sandboxes. Ticket titles, story points, and comments never leave your tenant perimeter to third-party databases.
+          </p>
+          <div style="margin-top: 12px; font-size: 0.75rem; color: var(--nv-accent); font-family: var(--nv-font-mono);">
+            Applied in: Sprint Scope Guard, IntraGuard DLP, Smart Defaults
           </div>
         </div>
 
-        <!-- App 2: Smart Defaults & DoD Guard -->
-        <div class="card glass reveal">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="badge-beta">🧪 Beta / Testing</span>
-            <span class="badge-certified">🛡️ Forge Serverless</span>
-          </div>
-          <h3 class="card-title" style="color: var(--nv-white); font-size: 1.25rem;">Smart Defaults & DoD Guard</h3>
-
-          <div class="suite-lang-block" data-lang="en">
-            <p class="card-text">
-              Enforces Definition of Done (DoD) checklists and quality gates directly in the issue view. Automatically populates standard descriptions by issue type and validates 100% checklist completion before transitions to Done.
-            </p>
-            <div style="margin-top: 14px; font-size: 0.8rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
-              📋 Workflow Transition Validator • Interactive Checklists • Project Settings
-            </div>
-          </div>
-
-          <div class="suite-lang-block" data-lang="de" style="display: none;">
-            <p class="card-text">
-              Erzwingt Definition of Done (DoD) Checklisten und Qualitäts-Gates direkt in der Vorgangsansicht. Füllt Beschreibungen automatisch nach Vorgangstyp aus und blockiert Übergänge zu „Fertig“, bis alle Kriterien erfüllt sind.
-            </p>
-            <div style="margin-top: 14px; font-size: 0.8rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
-              📋 Workflow-Validierer • Interaktive Checklisten • Projekt-Vorlagen
-            </div>
-          </div>
-
-          <div class="suite-lang-block" data-lang="ru" style="display: none;">
-            <p class="card-text">
-              Автоматизация Definition of Done (DoD) и шаблонов задач. Встраивает интерактивный чек-лист в тикет и валидатор воркфлоу, блокирующий закрытие задачи до выполнения всех обязательных критериев приемки.
-            </p>
-            <div style="margin-top: 14px; font-size: 0.8rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
-              📋 Валидатор переходов • Чек-листы качества • Авто-шаблоны описания
-            </div>
+        <div class="card glass">
+          <div style="font-size: 1.5rem; margin-bottom: 12px;">⚡</div>
+          <h3 class="card-title">Local-First On-Device Compute</h3>
+          <p class="card-text">
+            Productivity tools run local inference directly on client GPU/CPU hardware. Audio recordings and sensitive source code stay completely on your machine.
+          </p>
+          <div style="margin-top: 12px; font-size: 0.75rem; color: var(--nv-accent); font-family: var(--nv-font-mono);">
+            Applied in: Verbum Speech Engine
           </div>
         </div>
 
-        <!-- App 3: JSM Email Audit Trail -->
-        <div class="card glass reveal">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="badge-beta">🧪 Beta / Testing</span>
-            <span class="badge-certified">🛡️ Zero-Egress Storage</span>
+        <div class="card glass">
+          <div style="font-size: 1.5rem; margin-bottom: 12px;">🛡️</div>
+          <h3 class="card-title">Frictionless No-Account Utility</h3>
+          <p class="card-text">
+            Consumer and puzzle applications require no sign-up forms, no cookies, and no tracking scripts. State persists locally via Web Storage and Service Workers.
+          </p>
+          <div style="margin-top: 12px; font-size: 0.75rem; color: var(--nv-accent); font-family: var(--nv-font-mono);">
+            Applied in: Foldwink, MOIRÉ, NULL//FIELD
           </div>
-          <h3 class="card-title" style="color: var(--nv-white); font-size: 1.25rem;">JSM Outgoing Email & Delivery Audit</h3>
+        </div>
 
-          <div class="suite-lang-block" data-lang="en">
-            <p class="card-text">
-              Provides forensic outgoing notification audit trails for Jira Service Management customer tickets. Inspect delivery statuses, SMTP response codes, recipient timestamps, and export CSV audit logs for SOC2 compliance.
-            </p>
-            <div style="margin-top: 14px; font-size: 0.8rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
-              📬 Service Desk Context Tab • Global Admin Log Explorer • SOC2 Dump
-            </div>
-          </div>
-
-          <div class="suite-lang-block" data-lang="de" style="display: none;">
-            <p class="card-text">
-              Bietet lückenlose Prüfpfade für ausgehende E-Mail-Benachrichtigungen in Jira Service Management. Überwachen Sie Zustellstatus, SMTP-Antwortcodes und exportieren Sie CSV-Prüfprotokolle für SOC2-Audits.
-            </p>
-            <div style="margin-top: 14px; font-size: 0.8rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
-              📬 Ticket-Audit-Verlauf • Globaler Admin-Explorer • SOC2 Export
-            </div>
-          </div>
-
-          <div class="suite-lang-block" data-lang="ru" style="display: none;">
-            <p class="card-text">
-              Полный аудит исходящих email-уведомлений для тикетов Jira Service Management. Просматривайте статус доставки, SMTP-коды ответов, временные метки и выгружайте CSV-дампы для подтверждения SLA и SOC2.
-            </p>
-            <div style="margin-top: 14px; font-size: 0.8rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
-              📬 Вкладка аудита тикета • Глобальный журнал админа • Экспорт для SOC2
-            </div>
+        <div class="card glass">
+          <div style="font-size: 1.5rem; margin-bottom: 12px;">⚙️</div>
+          <h3 class="card-title">Strict Domain Causality</h3>
+          <p class="card-text">
+            We build specialized vertical systems rooted in legal, operational, and organizational realities rather than shallow wrappers over generic APIs.
+          </p>
+          <div style="margin-top: 12px; font-size: 0.75rem; color: var(--nv-accent); font-family: var(--nv-font-mono);">
+            Applied in: WurfKit.de & Atlassian Suite
           </div>
         </div>
       </div>
@@ -367,173 +637,133 @@
 
   <div class="divider"></div>
 
-  <!-- ========== FOLDWINK (Featured Product) ========== -->
-  <section class="section" id="foldwink">
-    <div class="container">
-
-      <div class="featured-block reveal">
-        <span class="featured-badge">Daily Puzzle</span>
-        <h2 class="featured-title">Foldwink</h2>
-        <p class="featured-text">
-          A short daily grouping game for a clear head. Find four hidden groups
-          in sixteen cards, then come back tomorrow for a fresh board.
-        </p>
-        <div class="featured-actions">
-          <a href="/foldwink/" class="btn btn-primary">Play today's puzzle</a>
-        </div>
-      </div>
-
-      <div class="card-grid">
-        <div class="card glass reveal">
-          <div class="card-icon">&#9670;</div>
-          <h3 class="card-title">Four clean groups</h3>
-          <p class="card-text">Sixteen cards, four answers, and four mistakes to spare.</p>
-        </div>
-        <div class="card glass reveal">
-          <div class="card-icon">&#9653;</div>
-          <h3 class="card-title">One useful Wink</h3>
-          <p class="card-text">Medium puzzles reveal category letters as you solve. Spend one Wink when you need it.</p>
-        </div>
-        <div class="card glass reveal">
-          <div class="card-icon">&#9655;</div>
-          <h3 class="card-title">Made for a phone</h3>
-          <p class="card-text">A focused 2-5 minute puzzle with a tactile card surface and optional sound.</p>
-        </div>
-        <div class="card glass reveal">
-          <div class="card-icon">&#9632;</div>
-          <h3 class="card-title">Private by default</h3>
-          <p class="card-text">No account, no feed, and no gameplay paywall. Your progress stays on your device.</p>
-        </div>
-      </div>
+  <!-- ========== STUDIO & ABOUT ========== -->
+  <section class="section" id="studio">
+    <div class="container reveal">
+      <span class="section-label">Studio</span>
+      <h2 class="section-title">Independent Venture Lab</h2>
+      <p class="section-text">
+        Neural Void operates as an independent product lab founded by Vladimir Evseev. We combine systems engineering, interaction design, and strict data privacy to build durable software for teams and focused individuals.
+      </p>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- ========== CONCEPTS ========== -->
-  <section class="section" id="concepts">
-    <div class="container">
-      <div class="reveal">
-        <span class="section-label">Pipeline</span>
-        <h2 class="section-title">Selected directions.</h2>
-        <p class="section-text">A curated set of product directions, pilots, and external proofs. Each one is built to ship.</p>
-      </div>
-
-      <!-- Concept cards -->
-      <div class="card-grid">
-        <div class="card glass reveal">
-          <span class="card-status live">Live</span>
-          <h3 class="card-title">Verbum</h3>
-          <p class="card-text">Local-first voice dictation for Windows 11. Dictate prompts, docs, and comments in Russian with mixed English technical terms without layout switching.</p>
-          <a href="/verbum/" class="card-link">Open Verbum &rarr;</a>
-        </div>
-        <div class="card glass reveal">
-          <span class="card-status live">Live</span>
-          <h3 class="card-title">Foldwink</h3>
-          <p class="card-text">A short daily grouping game. New board, one useful Wink, no account.</p>
-          <a href="/foldwink/" class="card-link">Play Foldwink &rarr;</a>
-        </div>
-        <div class="card glass reveal">
-          <span class="card-status live">Live</span>
-          <h3 class="card-title">NULL//FIELD</h3>
-          <p class="card-text">A mobile field experience for locating and clearing playful anomalies through sound, direction, and movement.</p>
-          <a href="https://nullfield.neural-void.com/" class="card-link">Open NULL//FIELD &rarr;</a>
-        </div>
-        <div class="card glass reveal">
-          <span class="card-status live">Live</span>
-          <h3 class="card-title">MOIRÉ</h3>
-          <p class="card-text">A mobile coincidence experiment that seals your choice before the moment, sends short reality missions, and records exact, near, and missed echoes.</p>
-          <a href="https://moire.neural-void.com/" class="card-link">Open MOIRÉ &rarr;</a>
-        </div>
-        <div class="card glass reveal">
-          <span class="card-status live">Atlassian Suite</span>
-          <h3 class="card-title">Sprint Scope Guard</h3>
-          <p class="card-text">Scrum Scope Creep Radar, 1-Click Scope Swap, and Custom JQL Pro for Jira Cloud.</p>
-          <a href="/sprint-scope-guard/" class="card-link">Explore Sprint Scope Guard &rarr;</a>
-        </div>
-        <div class="card glass reveal">
-          <span class="card-status external">External Case</span>
-          <h3 class="card-title">WurfKit</h3>
-          <p class="card-text">A niche workflow product for breeder operations, documentation, and structured puppy management. Vertical product thinking applied to a real audience.</p>
-          <a href="https://wurfkit.de/" target="_blank" rel="noopener" class="card-link">Visit WurfKit &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ========== PROCESS ========== -->
-  <section class="section" id="process">
-    <div class="container">
-      <div class="reveal">
-        <span class="section-label">How It Works</span>
-        <h2 class="section-title">From concept to rollout.</h2>
-      </div>
-
-      <div class="process-grid reveal" style="counter-reset: step;">
-        <div class="process-step">
-          <h3>Concept</h3>
-          <p>Identify the opportunity. Define the product shape. Validate the thesis.</p>
-        </div>
-        <div class="process-step">
-          <h3>Prototype</h3>
-          <p>Build a working version fast. Real code, real interactions, real feedback.</p>
-        </div>
-        <div class="process-step">
-          <h3>Pilot</h3>
-          <p>Launch with an early partner. Measure engagement. Iterate on data.</p>
-        </div>
-        <div class="process-step">
-          <h3>Rollout</h3>
-          <p>Scale what works. White-label, integrate, expand to new partners.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ========== CONTACT / CTA ========== -->
+  <!-- ========== CONTACT & NEXT STEPS (P1) ========== -->
   <section class="section cta-section" id="contact">
     <div class="container reveal">
       <span class="section-label">Get in Touch</span>
-      <h2 class="section-title">Ready to explore a pilot or integration?</h2>
+      <h2 class="section-title">Choose Your Next Step</h2>
       <p class="section-text">
-        Looking at Foldwink, Verbum, or our Atlassian Jira Cloud governance extensions — let's talk.
+        Whether you are seeking private pilot access for your Jira team, exploring commercial integration, or need technical support.
       </p>
-      <div class="cta-actions">
-        <a href="#jira-suite" class="btn btn-primary">View Jira Apps</a>
-        <a href="/foldwink/" class="btn btn-secondary">Play Foldwink</a>
-        <a href="mailto:hello@neural-void.com" class="btn btn-ghost">Contact Us</a>
+
+      <div class="contact-routes">
+        <div class="contact-card">
+          <h4>🛡️ Request a Private Pilot</h4>
+          <p>Deploy Sprint Scope Guard or IntraGuard DLP to your staging or production Jira Cloud sandbox.</p>
+          <a href="mailto:pilot@neural-void.com?subject=Pilot%20Request%20-%20Neural%20Void">pilot@neural-void.com &rarr;</a>
+        </div>
+
+        <div class="contact-card">
+          <h4>🤝 Studio & Partnership</h4>
+          <p>Collaborate on applied AI research, bespoke vertical product engineering, or licensing.</p>
+          <a href="mailto:hello@neural-void.com?subject=Studio%20Inquiry">hello@neural-void.com &rarr;</a>
+        </div>
+
+        <div class="contact-card">
+          <h4>📬 Customer Support & SLA</h4>
+          <p>Technical assistance, security bug disclosures, and operational incident management.</p>
+          <a href="mailto:support@neural-void.com?subject=Support%20Request">support@neural-void.com &rarr;</a>
+        </div>
       </div>
-      <p class="cta-email">Or reach out directly: <a href="mailto:hello@neural-void.com">hello@neural-void.com</a></p>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- ========== STRUCTURED MULTI-COLUMN FOOTER (P0/P1) ========== -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-inner">
-        <p class="footer-copy">&copy; 2026 Neural Void</p>
-        <ul class="footer-links">
-          <li><a href="/">Studio</a></li>
-          <li><a href="/atlassian/" style="color: var(--nv-accent); font-weight: 600;">Atlassian Hub ⚡</a></li>
-          <li><a href="/sprint-scope-guard/">Scope Guard</a></li>
-          <li><a href="/jira-dlp-firewall/">DLP Firewall</a></li>
-          <li><a href="/verbum/">Verbum</a></li>
-          <li><a href="/foldwink/">Foldwink</a></li>
-          <li><a href="/security/">Partner Security Policy</a></li>
-          <li><a href="/privacy/">Privacy</a></li>
-          <li><a href="/terms/">Terms</a></li>
-          <li><a href="/support/">Support</a></li>
-        </ul>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>NEURAL<span>VOID</span></h4>
+          <p class="footer-tagline">
+            Independent product lab building zero-egress cloud governance, local intelligence, and mindful interactive systems.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Products</h5>
+          <ul>
+            <li><a href="/sprint-scope-guard/">Sprint Scope Guard</a></li>
+            <li><a href="/jira-dlp-firewall/">IntraGuard DLP</a></li>
+            <li><a href="/smart-defaults-dod/">Smart Defaults & DoD</a></li>
+            <li><a href="/verbum/">Verbum Voice Engine</a></li>
+            <li><a href="/foldwink/">Foldwink Daily Puzzle</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Lab & Solutions</h5>
+          <ul>
+            <li><a href="/atlassian/">Atlassian Suite Hub</a></li>
+            <li><a href="/lab/">Neural Void Lab</a></li>
+            <li><a href="https://nullfield.neural-void.com/" target="_blank" rel="noopener">NULL//FIELD</a></li>
+            <li><a href="https://moire.neural-void.com/" target="_blank" rel="noopener">MOIRÉ Experiment</a></li>
+            <li><a href="https://wurfkit.de/" target="_blank" rel="noopener">WurfKit (External Case)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Trust & Legal</h5>
+          <ul>
+            <li><a href="/security/">Security & Incident SLA</a></li>
+            <li><a href="/support/">Support Desk & Help</a></li>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms of Service</a></li>
+            <li><a href="mailto:hello@neural-void.com">Contact Desk</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Neural Void. All rights reserved.</p>
+        <p class="footer-meta">Zero Data Egress • Local-First Architecture • Atlassian Forge Native</p>
       </div>
     </div>
   </footer>
 
   <script src="/assets/js/main.js"></script>
   <script>
+    // Hero interactive mini-demo toggle
+    let demoSwapped = false;
+    function toggleDemoSwap() {
+      demoSwapped = !demoSwapped;
+      const badge = document.getElementById('demo-badge');
+      const injected = document.getElementById('demo-injected');
+      const forecast = document.getElementById('demo-forecast');
+      const btn = document.getElementById('demo-btn');
+
+      if (demoSwapped) {
+        badge.textContent = '✓ Scope Balanced (1-In-1-Out)';
+        badge.className = 'hero-demo-status balanced';
+        injected.textContent = '0 SP Delta';
+        injected.style.color = '#34d399';
+        forecast.textContent = 'On Track';
+        forecast.style.color = '#34d399';
+        btn.innerHTML = '<span>↺ Reset Scope Creep Simulation</span>';
+      } else {
+        badge.textContent = '⚠️ Scope Creep +25%';
+        badge.className = 'hero-demo-status warning';
+        injected.textContent = '+8 SP';
+        injected.style.color = '#ef4444';
+        forecast.textContent = '-2 Days Risk';
+        forecast.style.color = '#f59e0b';
+        btn.innerHTML = '<span>⚡ Run 1-Click Scope Swap («1-In-1-Out»)</span>';
+      }
+    }
+
+    // Interactive Language Switcher
     function switchSuiteLang(lang) {
       try {
         localStorage.setItem('nv_lang', lang);
@@ -547,7 +777,6 @@
       });
     }
 
-    // Initialize stored language preference
     (function() {
       try {
         const saved = localStorage.getItem('nv_lang') || localStorage.getItem('verbum_lang');
