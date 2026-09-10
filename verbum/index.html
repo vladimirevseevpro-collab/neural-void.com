@@ -346,6 +346,7 @@
       border-color: var(--nv-border-hi);
     }
     .faq-question {
+      background: transparent;
       padding: 18px 22px;
       cursor: pointer;
       display: flex;
@@ -354,6 +355,10 @@
       font-weight: 600;
       color: var(--nv-white);
       font-size: 0.95rem;
+      width: 100%;
+      border: 0;
+      text-align: left;
+      font-family: inherit;
     }
     .faq-icon {
       font-size: 1.2rem;
@@ -423,7 +428,7 @@
           <span class="hero-badge"><span class="dot"></span> <span data-lang="ru">100% Оффлайн • Vulkan GPU</span><span data-lang="en">100% Offline • Vulkan GPU</span></span>
           <span class="hero-badge version"><span data-lang="ru">Релиз v2.0.0 Production</span><span data-lang="en">v2.0.0 Production Release</span></span>
           <span class="hero-badge" style="border-color: rgba(0, 212, 245, 0.4); color: #00d4f5;"><span data-lang="ru">⚡ Joules &amp; Unsloth SFT</span><span data-lang="en">⚡ Joules &amp; Unsloth SFT</span></span>
-          <span class="hero-badge" style="border-color: rgba(52, 211, 153, 0.3); color: #34d399;"><span data-lang="ru">⚡ GPU Инференс ~280мс</span><span data-lang="en">⚡ On-Device GPU ~280ms</span></span>
+          <span class="hero-badge" style="border-color: rgba(52, 211, 153, 0.3); color: #34d399;"><span data-lang="ru">⚡ Локальный GPU-инференс</span><span data-lang="en">⚡ On-Device GPU Inference</span></span>
         </div>
 
         <h1 class="hero-title" data-lang="ru">
@@ -462,8 +467,8 @@
         <div class="reveal" style="margin-top: 45px; text-align: center;">
           <div style="font-family: var(--nv-font-mono); font-size: 0.8rem; color: #00d4f5; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; display: inline-flex; align-items: center; gap: 8px;">
             <span>✨</span>
-            <span data-lang="ru">Новый интерфейс 2026: Плавающий Glassmorphic Pill HUD</span>
-            <span data-lang="en">New 2026 Interface: Floating Glassmorphic Pill HUD</span>
+            <span data-lang="ru">Демонстрационный макет 2026: Плавающий Glassmorphic Pill HUD</span>
+            <span data-lang="en">Illustrative 2026 Preview: Floating Glassmorphic Pill HUD</span>
           </div>
 
           <!-- The Floating Pill Widget -->
@@ -489,10 +494,10 @@
                 </span>
               </div>
 
-              <!-- Right: Live Latency HUD + Undo Hint -->
+              <!-- Right: Illustrative HUD sample + Undo Hint -->
               <div style="display: flex; align-items: center; gap: 10px;">
                 <span style="font-family: var(--nv-font-mono); font-size: 0.76rem; color: #00d4f5; background: rgba(0, 212, 245, 0.08); border: 1px solid rgba(0, 212, 245, 0.2); padding: 4px 8px; border-radius: 8px;">
-                  ⚡ 142ms (On-Device GPU)
+                  ⚡ timing depends on model, hardware & utterance
                 </span>
                 <span style="font-family: var(--nv-font-mono); font-size: 0.7rem; color: #94a3b8; border: 1px dashed rgba(255,255,255,0.2); padding: 3px 7px; border-radius: 6px;">
                   Alt+⌫ Undo
@@ -532,7 +537,7 @@
               <div class="terminal-dot yellow"></div>
               <div class="terminal-dot green"></div>
             </div>
-            <div class="terminal-title">verbum // voice injection stream</div>
+            <div class="terminal-title">verbum // illustrative voice injection sample</div>
             <div class="terminal-tabs">
               <button class="terminal-tab active" onclick="setDemo(0)">Claude Code / AI</button>
               <button class="terminal-tab" onclick="setDemo(1)">Python / VS Code</button>
@@ -548,8 +553,8 @@
               сделай рефакторинг auth_token middleware и добавь проверку sha256 хэша
             </div>
             <div style="margin-top: 12px; color: #475569; font-size: 0.78rem;">
-              <span data-lang="ru">[Безопасный ввод: Terminal Guard активен • Нажатие Enter заблокировано • Задержка: 142 мс]</span>
-              <span data-lang="en">[Safe Insertion: Terminal Guard Active • Enter Key Suppressed • Latency: 142ms]</span>
+              <span data-lang="ru">[Демонстрационный пример • Terminal Guard • Enter подавлен • фактическое время зависит от модели и железа]</span>
+              <span data-lang="en">[Illustrative sample • Terminal Guard • Enter suppressed • actual timing depends on model and hardware]</span>
             </div>
           </div>
         </div>
@@ -596,10 +601,10 @@
           <div class="card-icon" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border-color: rgba(239, 68, 68, 0.3);">✕</div>
           <h3 class="card-title" style="color: #f87171;"><span data-lang="ru">Случайный Enter в терминале</span><span data-lang="en">Accidental Enter in Shells</span></h3>
           <p class="card-text" data-lang="ru">
-            Обычные утилиты отправляют переводы строк, нажимая Enter посреди незаконченной команды <code>rm -rf /var/data</code> или <code>git push</code>. <strong>Verbum аппаратно блокирует Enter в консолях.</strong>
+            Обычные утилиты могут отправить перевод строки посреди незаконченной команды <code>rm -rf /var/data</code> или <code>git push</code>. <strong>Verbum применяет safeguards для ввода в терминале и оставляет текст черновиком.</strong>
           </p>
           <p class="card-text" data-lang="en">
-            Standard voice tools inject newlines and execute partial shell commands like <code>git push --force</code>. <strong>Verbum enforces a zero-execution hardware guard.</strong>
+            Standard voice tools may inject newlines into partial shell commands like <code>git push --force</code>. <strong>Verbum applies terminal input safeguards and leaves the text for manual review.</strong>
           </p>
         </div>
 
@@ -607,10 +612,10 @@
           <div class="card-icon" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border-color: rgba(239, 68, 68, 0.3);">✕</div>
           <h3 class="card-title" style="color: #f87171;"><span data-lang="ru">Облачный лаг и приватность</span><span data-lang="en">Cloud Lag & Leakage</span></h3>
           <p class="card-text" data-lang="ru">
-            Облачные API заставляют ждать 2 секунды и отправляют ваш закрытый код на чужие сервера. <strong>Verbum на 100% оффлайн на вашем GPU с откликом 200–400 мс.</strong>
+            Облачные API зависят от сети и отправляют данные на удалённую инфраструктуру. <strong>Verbum работает локально; фактическая скорость зависит от модели, железа и длины фразы.</strong>
           </p>
           <p class="card-text" data-lang="en">
-            Cloud APIs add 2-second round-trip latency and stream proprietary code to remote servers. <strong>Verbum is 100% offline on your local GPU with sub-400ms speed.</strong>
+            Cloud APIs depend on network and service conditions and send data to remote infrastructure. <strong>Verbum runs locally; actual timing depends on the model, hardware, and utterance length.</strong>
           </p>
         </div>
       </div>
@@ -677,18 +682,18 @@
           </p>
         </div>
 
-        <!-- Card 3: Zero-Silence Hallucination Guard -->
+        <!-- Card 3: Silence Artifact Guard -->
         <div class="card glass reveal" style="border-color: rgba(192, 132, 252, 0.4); box-shadow: 0 10px 30px rgba(192, 132, 252, 0.08);">
           <div class="card-icon" style="background: rgba(192, 132, 252, 0.15); color: #c084fc;">🔇</div>
           <h3 class="card-title" style="color: #c084fc;">
-            <span data-lang="ru">100% Защита от Галлюцинаций Тишины</span>
-            <span data-lang="en">Zero-Silence Hallucination Guard</span>
+            <span data-lang="ru">Защита от артефактов тишины</span>
+            <span data-lang="en">Silence Artifact Guard</span>
           </h3>
           <p class="card-text" data-lang="ru">
-            Акустические ловушки и шлюз подавления циклических повторений. Модель больше никогда не фантазирует <em>«Спасибо за просмотр»</em>, субтитры или зацикленные фразы во время вздохов, пауз и фонового шума.
+            Акустические ловушки и шлюз подавления циклических повторений помогают снижать типичные артефакты Whisper, например <em>«Спасибо за просмотр»</em> или зацикленные фразы во время вздохов, пауз и фонового шума.
           </p>
           <p class="card-text" data-lang="en">
-            Acoustic silence traps and anti-repetition gate. Permanently eliminates typical Whisper hallucinations like <em>"Thank you for watching"</em> or loop cascades during breaths, pauses, and ambient office noise.
+            Acoustic silence traps and an anti-repetition gate help reduce typical Whisper artifacts such as <em>"Thank you for watching"</em> or loop cascades during breaths, pauses, and ambient office noise.
           </p>
         </div>
 
@@ -700,10 +705,10 @@
             <span data-lang="en">Micro-SLM Prosody Cartridges v2</span>
           </h3>
           <p class="card-text" data-lang="ru">
-            Автономные легковесные картриджи для интонационной расстановки знаков препинания, вопросительных знаков и кавычек с минимальным оверхедом <strong>&lt; 50 мс</strong> без обращения к тяжелым внешним LLM.
+            Автономные легковесные картриджи для интонационной расстановки знаков препинания, вопросительных знаков и кавычек с небольшим локальным оверхедом без обращения к тяжёлым внешним LLM; фактическое время зависит от модели и железа.
           </p>
           <p class="card-text" data-lang="en">
-            Hot-swappable micro-SLM cartridges for tone-aware punctuation, question marks, and syntax structure with minimal on-device <strong>&lt; 50ms overhead</strong> without calling heavy cloud LLMs.
+            Hot-swappable micro-SLM cartridges add lightweight on-device punctuation and syntax processing without calling heavy cloud LLMs; actual overhead depends on the model and hardware.
           </p>
         </div>
 
@@ -728,11 +733,11 @@
           <div class="card-icon">⚡</div>
           <h3 class="card-title"><span data-lang="ru">Два Режима Распознавания</span><span data-lang="en">Dual-Mode Inference</span></h3>
           <p class="card-text" data-lang="ru">
-            <strong>Fast (Быстрый):</strong> отклик 200–500 мс на легкой модели для мгновенных промптов в AI-агенты.<br><br>
+            <strong>Fast (Быстрый):</strong> лёгкая модель для коротких промптов в AI-агенты; фактический отклик зависит от модели, железа и фразы.<br><br>
             <strong>Accurate (Точный):</strong> модель <code>large-v3-turbo-q5_0</code> с confidence rescue и расстановкой пунктуации для сложных технических текстов.
           </p>
           <p class="card-text" data-lang="en">
-            <strong>Fast Mode:</strong> Sub-300ms single-pass recognition using optimized models for rapid agent prompts.<br><br>
+            <strong>Fast Mode:</strong> optimized models for rapid agent prompts; actual single-pass timing varies with model, hardware, and utterance.<br><br>
             <strong>Accurate Mode:</strong> <code>large-v3-turbo-q5_0</code> with confidence rescue and spoken punctuation for long-form engineering dictation.
           </p>
         </div>
@@ -829,10 +834,10 @@
           <div class="card-icon">✨</div>
           <h3 class="card-title"><span data-lang="ru">Плавающий Glassmorphic HUD</span><span data-lang="en">Floating Glassmorphic HUD</span></h3>
           <p class="card-text" data-lang="ru">
-            Ультра-легкая капсула в стиле Windows 11 Mica Alt: живая звуковая волна, бейджи целевых профилей (<code>[CLI]</code>, <code>[CODE]</code>, <code>[DATEV]</code>) и прозрачный тайминг задержки (<code>⚡ 280ms (GPU)</code>).
+            Ультра-легкая демонстрационная капсула в стиле Windows 11 Mica Alt: звуковая волна, бейджи целевых профилей (<code>[CLI]</code>, <code>[CODE]</code>, <code>[DATEV]</code>) и пример отображения времени; реальные значения зависят от модели и железа.
           </p>
           <p class="card-text" data-lang="en">
-            Ultra-sleek Windows 11 Mica Alt floating capsule: real-time audio waveform, dynamic profile badges (<code>[CLI]</code>, <code>[CODE]</code>, <code>[DATEV]</code>), and transparent latency HUD (<code>⚡ 280ms (GPU)</code>).
+            Illustrative Windows 11 Mica Alt floating capsule: audio waveform, dynamic profile badges (<code>[CLI]</code>, <code>[CODE]</code>, <code>[DATEV]</code>), and a sample timing HUD; actual values depend on model and hardware.
           </p>
         </div>
 
@@ -877,8 +882,8 @@
           <div class="terminal-title" style="color: #bfa8ff;">verbum // meeting session • zoom (mic + wasapi loopback)</div>
           <div style="font-family: var(--nv-font-mono); font-size: 0.72rem; color: #34d399; display: flex; align-items: center; gap: 6px;">
             <span class="voice-pulse" style="background: #34d399; box-shadow: 0 0 10px #34d399;"></span>
-            <span data-lang="ru">Запись активна • 100% Локально</span>
-            <span data-lang="en">Recording Live • 100% Local</span>
+            <span data-lang="ru">Демонстрационный пример • Локальная обработка</span>
+            <span data-lang="en">Illustrative Sample • Local Processing</span>
           </div>
         </div>
         <div class="terminal-body" style="font-size: 0.86rem; line-height: 1.8;">
@@ -895,8 +900,8 @@
           <div style="margin-bottom: 12px;">
             <span style="color: #c084fc; font-weight: 600;"><span data-lang="ru">[00:19] Собеседник (Zoom):</span><span data-lang="en">[00:19] Colleague (Zoom):</span></span>
             <span style="color: #cbd5e1;">
-              <span data-lang="ru">Отлично, мы протестировали на AMD 780M и RTX 4080 — задержка меньше 300 мс, буфер обмена не затирается.</span>
-              <span data-lang="en">Sounds great, we tested on AMD 780M and RTX 4080 — latency is sub-300ms, clipboard stays intact.</span>
+              <span data-lang="ru">Отлично, фактический отклик зависит от модели, железа и длины фразы; буфер сохраняется с учётом особенностей клиента.</span>
+              <span data-lang="en">Sounds good; actual timing depends on the model, hardware, and utterance length, while clipboard behavior remains client-dependent.</span>
             </span>
           </div>
           <div style="margin-bottom: 12px;">
@@ -927,12 +932,12 @@
   <!-- ========== COMPARISON ========== -->
   <section class="section" id="comparison">
     <div class="container reveal">
-      <span class="section-label"><span data-lang="ru">Сравнение Возможностей</span><span data-lang="en">Benchmark & Capabilities</span></span>
+      <span class="section-label"><span data-lang="ru">Сравнение Возможностей</span><span data-lang="en">Qualitative Capability Comparison</span></span>
       <h2 class="section-title"><span data-lang="ru">Почему разработчики выбирают Verbum.</span><span data-lang="en">How Verbum compares.</span></h2>
       <p class="section-text" data-lang="ru">Наглядное сравнение с облачными API и стандартными системными утилитами.</p>
       <p class="section-text" data-lang="en">Why developers replace cloud voice APIs and standard OS voice typing with Verbum.</p>
 
-      <div class="compare-table-wrapper">
+      <div class="compare-table-wrapper" role="region" aria-label="Verbum feature comparison; scroll horizontally on smaller screens" tabindex="0">
         <table class="compare-table">
           <thead>
             <tr>
@@ -961,14 +966,14 @@
             <tr>
               <td><strong><span data-lang="ru">Синхронный стриминг-перевод (Real-Time)</span><span data-lang="en">Real-Time Streaming Translation</span></strong></td>
               <td class="highlight"><span class="check">✓</span> <span data-lang="ru">Wait-k CPU стриминг</span><span data-lang="en">Wait-k CPU Streaming</span></td>
-              <td><span class="cross">✗</span> <span data-lang="ru">1.5–3 сек (сеть)</span><span data-lang="en">1.5–3s latency</span></td>
+              <td><span class="cross">✗</span> <span data-lang="ru">Зависит от сети и сервиса</span><span data-lang="en">Network and service dependent</span></td>
               <td><span class="cross">✗</span> <span data-lang="ru">Нет</span><span data-lang="en">None</span></td>
               <td><span class="cross">✗</span> <span data-lang="ru">Нет</span><span data-lang="en">None</span></td>
             </tr>
             <tr>
-              <td><strong><span data-lang="ru">Защита от галлюцинаций тишины</span><span data-lang="en">Zero-Silence Hallucination Guard</span></strong></td>
+              <td><strong><span data-lang="ru">Защита от артефактов тишины</span><span data-lang="en">Silence Artifact Guard</span></strong></td>
               <td class="highlight"><span class="check">✓</span> <span data-lang="ru">100% акустические ловушки</span><span data-lang="en">Acoustic Traps</span></td>
-              <td><span class="cross">✗</span> <span data-lang="ru">Галлюцинирует в паузах</span><span data-lang="en">Hallucinates on silence</span></td>
+              <td><span class="cross">✗</span> <span data-lang="ru">Артефакты на тишине возможны</span><span data-lang="en">Silence artifacts possible</span></td>
               <td><span class="cross">✗</span> <span data-lang="ru">Обрывает диктовку</span><span data-lang="en">Drops dictation</span></td>
               <td><span class="cross">✗</span> <span data-lang="ru">Ошибается</span><span data-lang="en">Errors</span></td>
             </tr>
@@ -981,7 +986,7 @@
             </tr>
             <tr>
               <td><strong><span data-lang="ru">Защита от случайного Enter в терминале</span><span data-lang="en">Terminal Zero-Execution Guard</span></strong></td>
-              <td class="highlight"><span class="check">✓</span> <span data-lang="ru">Аппаратный замок</span><span data-lang="en">Hardware-level Lock</span></td>
+              <td class="highlight"><span class="check">✓</span> <span data-lang="ru">Защита ввода в терминале</span><span data-lang="en">Terminal Input Safeguards</span></td>
               <td><span class="cross">✗</span> <span data-lang="ru">Нет</span><span data-lang="en">No Guard</span></td>
               <td><span class="cross">✗</span> <span data-lang="ru">Может нажать Enter</span><span data-lang="en">May submit Enter</span></td>
               <td><span class="cross">✗</span> <span data-lang="ru">Нет</span><span data-lang="en">No Guard</span></td>
@@ -989,7 +994,7 @@
             <tr>
               <td><strong><span data-lang="ru">Сохранение буфера обмена (картинки, файлы)</span><span data-lang="en">Safe Clipboard Snapshot/Restore</span></strong></td>
               <td class="highlight"><span class="check">✓</span> <span data-lang="ru">Полный снимок</span><span data-lang="en">Text + Bitmaps + Files</span></td>
-              <td><span class="cross">✗</span> <span data-lang="ru">Затирает буфер</span><span data-lang="en">Corrupts Clip</span></td>
+              <td><span class="dim">~</span> <span data-lang="ru">Зависит от клиента</span><span data-lang="en">Client-dependent</span></td>
               <td><span class="cross">✗</span> N/A</td>
               <td><span class="cross">✗</span> N/A</td>
             </tr>
@@ -1002,10 +1007,10 @@
             </tr>
             <tr>
               <td><strong><span data-lang="ru">Задержка (Push-to-Talk)</span><span data-lang="en">Latency (Push-to-Talk)</span></strong></td>
-              <td class="highlight"><span class="check">✓</span> ~200–400 ms</td>
-              <td><span class="cross">✗</span> <span data-lang="ru">800–2500 ms (сеть)</span><span data-lang="en">800–2500 ms (network)</span></td>
-              <td><span class="dim">~</span> 500–1200 ms</td>
-              <td><span class="dim">~</span> 400–800 ms</td>
+              <td class="highlight"><span class="check">✓</span> <span data-lang="ru">Зависит от модели, железа и фразы</span><span data-lang="en">Model, hardware & utterance dependent</span></td>
+              <td><span class="cross">✗</span> <span data-lang="ru">Зависит от сети и сервиса</span><span data-lang="en">Network and service dependent</span></td>
+              <td><span class="dim">~</span> <span data-lang="ru">Зависит от системы</span><span data-lang="en">System dependent</span></td>
+              <td><span class="dim">~</span> <span data-lang="ru">Зависит от системы</span><span data-lang="en">System dependent</span></td>
             </tr>
             <tr>
               <td><strong><span data-lang="ru">Стоимость / Подписка</span><span data-lang="en">Subscription / Cost</span></strong></td>
@@ -1146,8 +1151,8 @@
         <div class="notice-box">
           <strong data-lang="ru">💡 Подсказка при первом запуске:</strong>
           <strong data-lang="en">💡 First Run Notice:</strong>
-          <span data-lang="ru">Так как инсталлятор распространяется независимо без платного корпоративного сертификата Microsoft, фильтр SmartScreen может показать предупреждение. Нажмите <em>«Подробнее» → «Выполнить в любом случае»</em>.</span>
-          <span data-lang="en">Since this installer is distributed directly without an expensive enterprise certificate, Windows SmartScreen may show a prompt. Click <em>"More info" → "Run anyway"</em>.</span>
+          <span data-lang="ru">Инсталлятор распространяется независимо и может вызвать предупреждение SmartScreen. Перед запуском проверьте издателя и SHA-256 хэш из этого раздела; не обходите предупреждение, если происхождение файла не подтверждено.</span>
+          <span data-lang="en">The independently distributed installer may trigger a SmartScreen warning. Before running it, verify the publisher and the SHA-256 hash shown in this section; do not bypass the warning when the file's origin is unverified.</span>
         </div>
       </div>
     </div>
@@ -1163,11 +1168,11 @@
 
       <div style="max-width: 800px; margin-top: 32px;">
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
+          <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
             <span data-lang="ru">Отправляет ли Verbum мой голос или текст в интернет?</span>
             <span data-lang="en">Does Verbum send my voice or transcriptions to the cloud?</span>
             <span class="faq-icon">+</span>
-          </div>
+          </button>
           <div class="faq-answer">
             <span data-lang="ru">Нет. Verbum работает на 100% локально на вашем компьютере через нативный Vulkan C++ движок. Приложение не делает никаких сетевых запросов для стриминга аудио или аналитики.</span>
             <span data-lang="en">No. Verbum runs 100% locally on your machine via a native C++ Vulkan speech recognition backend. It makes zero outbound network calls for audio streaming or recognition telemetry.</span>
@@ -1175,23 +1180,23 @@
         </div>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
+          <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
             <span data-lang="ru">Как Verbum защищает от случайного выполнения команд в терминале?</span>
             <span data-lang="en">How does Verbum prevent accidental command execution in terminals?</span>
             <span class="faq-icon">+</span>
-          </div>
+          </button>
           <div class="faq-answer">
-            <span data-lang="ru">Используется специальный Win32 инжектор ввода, который аппаратно отсекает символы перевода строки (`Enter`) и `Tab` при вводе в консольные окна (Windows Terminal, PowerShell, CMD, терминал VS Code). Текст вводится как черновик, который вы подтверждаете вручную.</span>
+            <span data-lang="ru">Используется специальный Win32 инжектор ввода, который явно отсекает символы перевода строки (`Enter`) и `Tab` при вводе в консольные окна (Windows Terminal, PowerShell, CMD, терминал VS Code). Текст вводится как черновик, который вы подтверждаете вручную.</span>
             <span data-lang="en">Verbum uses a specialized Win32 input injection sink that explicitly strips newlines and control characters when typing into terminal windows (Windows Terminal, Command Prompt, PowerShell, VS Code terminal). Your transcribed text is typed as a draft, allowing you to review before pressing Enter manually.</span>
           </div>
         </div>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
+          <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
             <span data-lang="ru">Какие горячие клавиши поддерживаются?</span>
             <span data-lang="en">What hotkeys are supported?</span>
             <span class="faq-icon">+</span>
-          </div>
+          </button>
           <div class="faq-answer">
             <span data-lang="ru">Поддерживаются режимы Push-to-Talk (удержание клавиши) и Toggle (нажал — говоришь, нажал — завершил). По умолчанию активен <strong>Правый Alt</strong>. Также доступны <code>Right Ctrl</code>, <code>Ctrl+Shift+Space</code>, <code>CapsLock</code> и любые кастомные глобальные хуки.</span>
             <span data-lang="en">Verbum supports both Push-to-Talk (hold key while speaking) and Toggle (press to start, press to stop) modes. Presets include Right Alt, Right Ctrl, Ctrl+Shift+Space, CapsLock, and custom Win32 low-level key bindings with modifier suppression.</span>
@@ -1199,11 +1204,11 @@
         </div>
 
         <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">
+          <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
             <span data-lang="ru">Как работает режим записи конференций (Zoom / Teams)?</span>
             <span data-lang="en">How does the Meeting Transcriber (Zoom / Teams) work?</span>
             <span class="faq-icon">+</span>
-          </div>
+          </button>
           <div class="faq-answer">
             <span data-lang="ru">Verbum использует нативный Windows WASAPI Loopback захват системного звука параллельно с микрофоном. Это позволяет записывать как ваш голос, так и голоса удаленных собеседников из любого приложения (Zoom, Microsoft Teams, Google Meet, Telegram, Discord). Вся транскрипция происходит на 100% локально на вашем GPU без подключения облачных ботов, с автоматическим экспортом в Markdown.</span>
             <span data-lang="en">Verbum uses native Windows WASAPI Loopback capture alongside your microphone. It records both your voice and remote participants from any app (Zoom, Teams, Google Meet, Discord) completely offline on your local GPU without inviting third-party cloud bots, exporting ready-to-use Markdown transcripts.</span>
@@ -1235,6 +1240,8 @@
     // Language Toggle
     function setLang(lang) {
       const isEn = (lang === 'en');
+      document.getElementById('btn-en').setAttribute('aria-pressed', String(isEn));
+      document.getElementById('btn-ru').setAttribute('aria-pressed', String(!isEn));
       if (isEn) {
         document.body.classList.add('lang-en');
         document.documentElement.lang = 'en';
@@ -1346,6 +1353,10 @@
       
       let charIndex = 0;
       const targetText = d.output;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        outEl.textContent = targetText;
+        return;
+      }
       function typeNext() {
         if (charIndex < targetText.length) {
           outEl.textContent += targetText.charAt(charIndex);
@@ -1358,7 +1369,8 @@
 
     function toggleFaq(el) {
       const item = el.closest('.faq-item');
-      item.classList.toggle('open');
+      const isOpen = item.classList.toggle('open');
+      el.setAttribute('aria-expanded', String(isOpen));
     }
 
     function copySha() {

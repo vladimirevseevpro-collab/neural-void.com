@@ -95,7 +95,7 @@
         <div class="sec-card">
           <h4>1. Zero-Egress Architecture & Infrastructure Security</h4>
           <p>
-            All Neural Void Jira applications are built 100% natively on the <strong>Atlassian Forge serverless runtime</strong> and qualify for the official <strong>Runs on Atlassian</strong> trust badge.
+            All Neural Void Jira applications are built on the <strong>Atlassian Forge serverless runtime</strong>. Marketplace review is in progress; any Runs on Atlassian eligibility is subject to Atlassian verification. Neural Void makes no independent certification claim.
           </p>
           <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc; color: var(--nv-text);">
             <li style="margin-bottom: 6px;"><strong>Zero External Data Egress:</strong> Our applications do not maintain external application servers, third-party databases, or external analytics endpoints. Compute operations execute entirely inside Atlassian-managed isolated serverless sandboxes.</li>
@@ -112,10 +112,9 @@
             We implement defense-in-depth principles to protect customer project data and permissions:
           </p>
           <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc; color: var(--nv-text);">
-            <li style="margin-bottom: 6px;"><strong>User Context Enforcement (asUser):</strong> All read and write operations interact with Jira REST endpoints through the calling user context (<code>asUser()</code>), strictly respecting Jira project permissions and user roles.</li>
-            <li style="margin-bottom: 6px;"><strong>Administrative Authorization Gates:</strong> Mutating administrative settings or initiating Scope Swap operations strictly requires verified Jira <code>ADMINISTER_PROJECTS</code> privileges. Unauthorized requests are blocked at the resolver boundary.</li>
+            <li style="margin-bottom: 6px;"><strong>User Context Enforcement (asUser):</strong> Documented Jira REST reads and writes use the calling user context (<code>asUser()</code>) where applicable, respecting Jira project permissions and user roles.</li>
+            <li style="margin-bottom: 6px;"><strong>Administrative Authorization Gates:</strong> Documented mutating administrative settings and Scope Swap operations require verified Jira <code>ADMINISTER_PROJECTS</code> privileges; authorization is checked at the resolver boundary.</li>
             <li style="margin-bottom: 6px;"><strong>Anti-Injection & Sanitization:</strong> Input parameters and JQL queries undergo strict regular expression validation to prevent JQL injection. CSV data exports enforce formula injection escaping against DDE attacks.</li>
-            <li style="margin-bottom: 6px;"><strong>SSRF Protection:</strong> Outbound webhook testing resolves target hostnames and enforces strict blocking of loopback addresses (127.0.0.0/8), RFC 1918 private subnets, and cloud metadata IPs (169.254.169.254).</li>
           </ul>
         </div>
 
@@ -142,12 +141,12 @@
               <tr>
                 <td style="color: #ff5630; font-weight: 600;">Critical</td>
                 <td>9.0 – 10.0</td>
-                <td><strong>Within 48 Hours</strong></td>
+                <td><strong>Target: 48 elapsed hours after validation</strong></td>
               </tr>
               <tr>
                 <td style="color: #ffab00; font-weight: 600;">High</td>
                 <td>7.0 – 8.9</td>
-                <td><strong>Within 7 Business Days</strong></td>
+                <td><strong>Target: 7 business days</strong></td>
               </tr>
               <tr>
                 <td style="color: #36b37e;">Medium</td>
@@ -162,7 +161,7 @@
             </tbody>
           </table>
           <p style="margin-top: 12px; font-size: 0.85rem; color: var(--nv-text-dim);">
-            Deployments on Atlassian Forge Cloud are executed serverless-side with zero customer downtime and immediate propagation across all cloud instances.
+            These remediation windows are targets, not guarantees. Elapsed hours include nights and weekends. Business days follow the Europe/Berlin support schedule (Monday–Friday, excluding public holidays in North Rhine-Westphalia); see <a href="/support/">Support &amp; SLA</a>. Deployment timing depends on validation, review, and Atlassian Forge release behavior.
           </p>
         </div>
 
@@ -173,8 +172,8 @@
             In the event of a suspected or confirmed security incident:
           </p>
           <ol style="margin-top: 10px; padding-left: 20px; color: var(--nv-text);">
-            <li style="margin-bottom: 6px;"><strong>Triage & Containment:</strong> The incident response team immediately isolates the affected module and deploys hotfix mitigations to the Forge production environment.</li>
-            <li style="margin-bottom: 6px;"><strong>Customer Notification (24h SLA):</strong> If an incident poses any risk to tenant configuration or security boundaries, Neural Void will notify affected administrators and Atlassian Security within <strong>24 hours</strong> of incident confirmation.</li>
+            <li style="margin-bottom: 6px;"><strong>Triage & Containment:</strong> The response process assesses the affected module and, where feasible, applies mitigations in the Forge production environment.</li>
+            <li style="margin-bottom: 6px;"><strong>Customer Notification (24 elapsed-hour target):</strong> If an incident poses any risk to tenant configuration or security boundaries, Neural Void aims to notify affected administrators and Atlassian Security within <strong>24 elapsed hours</strong> of incident confirmation.</li>
             <li style="margin-bottom: 6px;"><strong>Root Cause Analysis (RCA):</strong> A comprehensive Root Cause Analysis detailing findings, timeline, and corrective actions will be published within 5 business days.</li>
           </ol>
         </div>
@@ -189,7 +188,7 @@
             <div><strong>Security Contact:</strong> <!--email_off--><a href="mailto:security@neural-void.com" style="color: var(--nv-accent);">security@neural-void.com</a><!--/email_off--></div>
             <div style="margin-top: 4px;"><strong>Primary Operations:</strong> <!--email_off--><a href="mailto:support@neural-void.com" style="color: var(--nv-accent);">support@neural-void.com</a><!--/email_off--></div>
             <div style="margin-top: 4px;"><strong>Developer & Verification:</strong> <!--email_off--><a href="mailto:vladimir.evseev.pro@gmail.com" style="color: var(--nv-accent);">vladimir.evseev.pro@gmail.com</a><!--/email_off--></div>
-            <div style="margin-top: 4px;"><strong>Acknowledgement SLA:</strong> Within 24 hours</div>
+            <div style="margin-top: 4px;"><strong>Acknowledgement target:</strong> Within 1 business day</div>
             <div style="margin-top: 4px;"><strong>Confidentiality:</strong> Security inquiries are prioritized and handled with strict responsible disclosure confidentiality.</div>
           </div>
         </div>
@@ -206,10 +205,6 @@
           <p class="footer-desc">
             Independent software lab creating zero-egress Atlassian Cloud apps, private speech tools, and generative systems.
           </p>
-          <div class="footer-status">
-            <span class="pulse-dot" style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#00d4f5; margin-right:6px;"></span>
-            <span style="color: var(--nv-text-dim); font-size: 0.8rem;">All systems operational</span>
-          </div>
         </div>
         <div class="footer-col">
           <h4>Products</h4>

@@ -1,1 +1,4 @@
 .wrangler/
+.release/
+evidence/screenshots/
+__pycache__/

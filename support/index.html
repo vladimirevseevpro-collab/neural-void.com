@@ -83,12 +83,25 @@
     }
     .email-link { font-family: var(--nv-font-mono); font-size: 1.15rem; font-weight: 700; }
     
+    .table-scroll { overflow-x: auto; max-width: 100%; border-radius: 8px; }
+    .table-scroll:focus-visible, a:focus-visible { outline: 2px solid var(--nv-accent); outline-offset: 4px; }
     table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 0.9rem; }
     th { text-align: left; padding: 12px; color: var(--nv-text-dim); border-bottom: 1px solid var(--nv-border-hi); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
     td { padding: 14px 12px; border-bottom: 1px solid var(--nv-border); }
     tr:last-child td { border-bottom: none; }
     
     footer { margin-top: auto; border-top: 1px solid var(--nv-border); padding: 30px 0; text-align: center; color: var(--nv-text-dim); font-size: 0.85rem; }
+    @media (max-width: 640px) {
+      .container { padding: 0 16px; }
+      .nav-wrap { flex-wrap: wrap; gap: 14px; }
+      .nav-links { flex-wrap: wrap; gap: 10px 16px; font-size: .82rem; }
+      .card { padding: 20px 16px; min-width: 0; }
+      h1 { font-size: 1.85rem; }
+      .email-box { padding: 14px; overflow-wrap: anywhere; }
+      table { min-width: 600px; }
+      .table-hint { font-size: .8rem; color: var(--nv-text-dim); margin: 8px 0; }
+    }
+    @media (min-width: 641px) { .table-hint { display: none; } }
   </style>
 </head>
 <body>
@@ -118,7 +131,7 @@
     <div class="card">
       <div class="card-header">
         <h2>📩 Open a Support Request</h2>
-        <span class="sla-badge">SLA: &lt; 24 Hours First Response (Business Days)</span>
+        <span class="sla-badge">Support targets by severity</span>
       </div>
       <p style="color: var(--nv-text-dim); margin-bottom: 10px;">
         For technical assistance, bug reports, feature requests, or enterprise licensing, reach out directly to our dedicated engineering desk:
@@ -128,13 +141,15 @@
           📧 <a href="mailto:support@neural-void.com">support@neural-void.com</a>
         </div>
         <p style="font-size: 0.85rem; color: var(--nv-text-dim); margin-top: 8px;">
-          Monitored during business hours (Mon–Fri, 09:00–18:00 CET). Critical Sev-1 production incidents are prioritized for immediate triage.
+          Monitored Monday–Friday, 09:00–18:00 Europe/Berlin time (CET/CEST), excluding public holidays in North Rhine-Westphalia. A business day is a weekday in this schedule; a business hour is one hour within these support hours. Critical Sev-1 reports are prioritized for triage during the schedule.
         </p>
       </div>
     </div>
 
     <div class="card">
       <h2>⏱️ Service Level Agreement (SLA) Matrix</h2>
+      <p class="table-hint">Scroll the table horizontally to read all response and resolution targets.</p>
+      <div class="table-scroll" role="region" aria-label="Support response and resolution targets" tabindex="0">
       <table>
         <thead>
           <tr>
@@ -148,29 +163,30 @@
           <tr>
             <td style="font-weight: 700; color: #ef4444;">🔴 Sev-1 (Critical)</td>
             <td style="color: var(--nv-text-dim);">App is unavailable or blocking critical Jira workflows</td>
-            <td style="font-family: var(--nv-font-mono); font-weight: 700;">&lt; 24 Hours</td>
-            <td style="font-family: var(--nv-font-mono);">&lt; 48 Hours Target</td>
+            <td style="font-family: var(--nv-font-mono); font-weight: 700;">Within 1 business day</td>
+            <td style="font-family: var(--nv-font-mono);">48 elapsed hours after triage (target)</td>
           </tr>
           <tr>
             <td style="font-weight: 700; color: #f59e0b;">🟡 Sev-2 (Major)</td>
             <td style="color: var(--nv-text-dim);">Core feature degraded with workaround available</td>
-            <td style="font-family: var(--nv-font-mono); font-weight: 700;">&lt; 48 Hours</td>
-            <td style="font-family: var(--nv-font-mono);">&lt; 5 Business Days</td>
+            <td style="font-family: var(--nv-font-mono); font-weight: 700;">Within 2 business days</td>
+            <td style="font-family: var(--nv-font-mono);">5 business days target</td>
           </tr>
           <tr>
             <td style="font-weight: 700; color: #10b981;">🟢 Sev-3 (General)</td>
             <td style="color: var(--nv-text-dim);">General questions, UI feedback, feature suggestions</td>
-            <td style="font-family: var(--nv-font-mono); font-weight: 700;">&lt; 3 Business Days</td>
-            <td style="font-family: var(--nv-font-mono);">Next Maintenance Release</td>
+            <td style="font-family: var(--nv-font-mono); font-weight: 700;">Within 3 business days</td>
+            <td style="font-family: var(--nv-font-mono);">Next maintenance release target; no guaranteed fix date</td>
           </tr>
         </tbody>
       </table>
+      </div>
     </div>
 
     <div class="card">
-      <h2 style="margin-bottom: 10px;">🛡️ Zero-Egress Security & Architecture Guarantee</h2>
+      <h2 style="margin-bottom: 10px;">🛡️ Security & Architecture</h2>
       <p style="color: var(--nv-text-dim); line-height: 1.7; font-size: 0.95rem;">
-        All our Jira applications are built 100% on the native <strong>Atlassian Forge</strong> serverless architecture. Your sprint data, issue keys, story points, and user identities never leave your Atlassian Cloud tenant. We operate zero external servers and zero external tracking databases, inheriting Atlassian Cloud's audited SOC2 Type II and ISO 27001 infrastructure controls.
+        Our Jira applications are built on the native <strong>Atlassian Forge</strong> serverless architecture and do not maintain external application servers. The documented data flow is designed to keep sprint data, issue keys, story points, and user identities within the Atlassian Cloud tenant. Atlassian's infrastructure controls apply to the underlying platform; Neural Void makes no independent certification claim.
       </p>
     </div>
   </main>
