@@ -260,7 +260,7 @@
     /* App Cards Grid */
     .apps-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
       gap: 28px;
     }
     .app-card {
@@ -444,6 +444,13 @@
     }
     @media (max-width: 768px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
+      .container { padding-left: 16px; padding-right: 16px; }
+      header { position: static; }
+      .header-inner { height: auto; flex-wrap: wrap; align-items: flex-start; gap: 12px; padding: 14px 0; }
+      .logo-group { flex: 1 1 100%; flex-wrap: wrap; gap: 8px; }
+      nav { width: 100%; }
+      .nav-links { flex-wrap: wrap; justify-content: flex-start; gap: 8px 14px; }
+      .nav-links a { display: inline-block; font-size: 0.8rem; padding: 3px 0; }
     }
     .footer-col h4 {
       font-size: 0.85rem;
