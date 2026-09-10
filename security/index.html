@@ -59,6 +59,13 @@
       color: var(--nv-white);
       font-family: var(--nv-font-mono);
     }
+    .security-table-scroll { max-width: 100%; overflow-x: auto; }
+    .security-table-scroll:focus-visible { outline: 3px solid var(--nv-accent); outline-offset: 3px; }
+    .sec-card { overflow-wrap: anywhere; }
+    @media (max-width: 768px) {
+      .sec-card { padding: 20px 16px; }
+      .sla-table { min-width: 500px; }
+    }
   </style>
 </head>
 <body>
@@ -129,6 +136,7 @@
             <li style="margin-bottom: 6px;"><strong>Dependency Hygiene:</strong> Third-party dependencies are pinned to verified versions and scanned against the National Vulnerability Database (NVD).</li>
           </ul>
 
+          <div class="security-table-scroll" role="region" aria-label="Security remediation targets; scroll horizontally on smaller screens" tabindex="0">
           <table class="sla-table">
             <thead>
               <tr>
@@ -160,6 +168,7 @@
               </tr>
             </tbody>
           </table>
+          </div>
           <p style="margin-top: 12px; font-size: 0.85rem; color: var(--nv-text-dim);">
             These remediation windows are targets, not guarantees. Elapsed hours include nights and weekends. Business days follow the Europe/Berlin support schedule (Monday–Friday, excluding public holidays in North Rhine-Westphalia); see <a href="/support/">Support &amp; SLA</a>. Deployment timing depends on validation, review, and Atlassian Forge release behavior.
           </p>
