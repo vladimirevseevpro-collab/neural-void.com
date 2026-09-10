@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Atlassian Cloud Suite — Neural Void | Zero-Egress Jira & JSM Apps</title>
-  <meta name="description" content="Enterprise-grade Atlassian Cloud Forge applications by Neural Void: Sprint Scope Guard, IntraGuard DLP Firewall, DoD Enforcers. 100% Zero-Egress security architecture.">
+  <title>Atlassian Cloud Suite — Neural Void | Forge Jira & JSM Apps</title>
+  <meta name="description" content="Atlassian Cloud Forge applications by Neural Void: Sprint Scope Guard, IntraGuard DLP Firewall and DoD tools. Review each product's capabilities, permissions and data handling.">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Neural Void Atlassian Cloud Suite — Zero-Egress Jira & JSM Apps">
+  <meta property="og:title" content="Neural Void Atlassian Cloud Suite — Forge Jira & JSM Apps">
   <meta property="og:description" content="Eliminate sprint scope creep, prevent data leakage, and automate agile governance on Atlassian Cloud. Built on Forge; Marketplace review in progress.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://neural-void.com/atlassian/">
@@ -388,6 +388,8 @@
       .hero-title { font-size: 2.3rem; }
     }
     .trust-diag {
+      min-width: 0;
+      overflow-wrap: anywhere;
       background: var(--nv-bg);
       border: 1px solid var(--nv-border);
       border-radius: var(--nv-radius-sm);
@@ -520,15 +522,15 @@
         <span>⚡</span> ATLASSIAN CLOUD FORGE DEVELOPER
       </div>
       <h1 class="hero-title">
-        Enterprise Jira & JSM Apps Built with <span>Zero Data Egress.</span>
+        Jira & JSM Apps Built on <span>Atlassian Forge.</span>
       </h1>
       <p class="hero-desc">
-        Eliminate sprint scope creep, intercept secrets and PII in real time, and enforce automated Definition of Done gates. Designed exclusively for Atlassian Cloud on the secure Forge runtime.
+        Inspect current sprint scope and explore tools for sensitive-data handling and Definition of Done workflows. Review each application's availability and documented boundaries.
       </p>
       <div class="hero-cta-group">
         <a href="#apps" class="btn btn-primary">Browse All Apps ↓</a>
         <a href="/security/" class="btn btn-secondary">Partner Security Policy</a>
-        <a href="#zero-egress" class="btn btn-ghost">Why Zero-Egress?</a>
+        <a href="#zero-egress" class="btn btn-ghost">Data & Architecture</a>
       </div>
 
       <div class="trust-badges">
@@ -536,7 +538,7 @@
           <span class="trust-dot"></span> Runs on Atlassian Cloud Compute
         </div>
         <div class="trust-item">
-          <span class="trust-dot"></span> 100% Zero Data Egress (No External DB)
+          <span class="trust-dot"></span> Forge-hosted Application Storage
         </div>
         <div class="trust-item">
           <span class="trust-dot"></span> Documented Data Handling
@@ -557,7 +559,7 @@
           <h2 class="section-title">Enterprise Forge Applications</h2>
         </div>
         <p style="color: var(--nv-text-dim); max-width: 480px; font-size: 0.95rem;">
-          Every application is built on Atlassian Forge with native Jira UI integration and documented permission boundaries. The apps do not maintain external application servers; Marketplace review is in progress and any Runs on Atlassian eligibility remains subject to Atlassian verification.
+          Each product has its own availability and permission boundaries. Sprint Scope Guard documentation describes the reviewed 3.4.1 remediation source, which is not yet a production release. The latest listed public Marketplace version is 3.2.0 as checked on 10 September 2026; review is pending. Verify the installed build before relying on remediation details.
         </p>
       </div>
 
@@ -571,14 +573,15 @@
             </div>
             <h3 class="app-title">Sprint Scope Guard & Agile JQL Pro</h3>
             <p class="app-tagline">
-              Real-time sprint commitment baseline tracking and custom JQL functions for disciplined agile velocity.
+              Audit the current active or planned Scrum sprint, with Jira-derived scope data and three custom JQL functions.
             </p>
             <ul class="app-features">
-              <li><span>✓</span> Automated baseline lock at sprint start</li>
+              <li><span>✓</span> Remaining pre-start members form the baseline; removed issues are excluded</li>
               <li><span>✓</span> Custom JQL: <code>addedToSprintAfterStart()</code></li>
-              <li><span>✓</span> Scope Creep percentage alerts & threshold triggers</li>
-              <li><span>✓</span> 1-Click Scope Swap governance workflow</li>
-              <li><span>✓</span> CSV / JSON export for audit preparation</li>
+              <li><span>✓</span> Current-sprint scope metrics; no history, forecasts or AI retrospectives</li>
+              <li><span>✓</span> Scope swaps subject to Jira permissions</li>
+              <li><span>✓</span> CSV / JSON / Markdown exports</li>
+              <li><span>✓</span> Free up to 10 users; $1.36/user/month for 11–100, then Marketplace volume rates. Same functions for all teams.</li>
             </ul>
           </div>
           <div class="app-actions">
@@ -671,18 +674,18 @@
       <div class="section-header">
         <div>
           <span class="section-label">Trust Architecture</span>
-          <h2 class="section-title">The Zero-Egress Advantage</h2>
+          <h2 class="section-title">Documented Data Boundaries</h2>
         </div>
       </div>
 
       <div class="trust-box">
         <div>
-          <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 16px;">Why Traditional Jira Add-ons Fail Enterprise Security Reviews</h3>
+          <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 16px;">Review the Complete Data Flow</h3>
           <p style="color: var(--nv-text-dim); margin-bottom: 16px; font-size: 0.95rem;">
-            Most Jira marketplace apps operate via external REST webhooks, shipping your proprietary ticket summaries, acceptance criteria, and internal discussion to third-party AWS/Heroku clusters.
+            Sprint Scope Guard runs on Forge and stores settings and governance records in Forge KVS. Jira content can be present in those records; browser exports create a local copy for the user.
           </p>
           <p style="color: var(--nv-text-dim); margin-bottom: 24px; font-size: 0.95rem;">
-            <strong>Neural Void does not maintain external app servers.</strong> Our apps execute inside Atlassian's isolated Forge runtime. Your data never leaves your verified tenant boundary.
+            Its optional Slack or Teams integration is a manual webhook test, not automatic notifications. The remediation sends generic test text and a timestamp to allowed endpoints. Forge logs can include installation-site metadata and are subject to customer sharing controls. Consult the security policy for version-specific details.
           </p>
           <a href="/security/" class="btn btn-primary">Read Complete Security Policy →</a>
         </div>
@@ -694,13 +697,14 @@
           <div>[Customer Jira Cloud Instance]</div>
           <div>&nbsp;&nbsp;│</div>
           <div>&nbsp;&nbsp;▼ (Atlassian Internal Forge Runtime)</div>
-          <div>&nbsp;&nbsp;├── Sprint Scope Guard Core <span class="good">[Zero-Egress]</span></div>
+          <div>&nbsp;&nbsp;├── Sprint Scope Guard Core <span class="good">[Forge]</span></div>
           <div>&nbsp;&nbsp;├── IntraGuard DLP Interceptor <span class="good">[Zero-Egress]</span></div>
           <div>&nbsp;&nbsp;└── Atlassian Encrypted Storage <span class="good">[AES-256 GCM]</span></div>
           <div style="margin-top: 8px; border-top: 1px dashed var(--nv-border); padding-top: 8px;">
-            <div>&nbsp;&nbsp;✗ Outbound Internet Fetch: <span class="warn">BLOCKED BY RUNTIME</span></div>
-            <div>&nbsp;&nbsp;✗ External Analytics / Trackers: <span class="warn">0 BYTES</span></div>
-            <div>&nbsp;&nbsp;✓ Atlassian Cloud Infrastructure: <span class="good">Inherited High Availability SLA</span></div>
+            <div>&nbsp;&nbsp;→ Manual webhook test: <span class="warn">ALLOWLISTED ENDPOINTS</span></div>
+            <div>&nbsp;&nbsp;→ hooks.slack.com / *.webhook.office.com</div>
+            <div>&nbsp;&nbsp;→ Forge logs: <span class="warn">PLATFORM METADATA</span></div>
+            <div>&nbsp;&nbsp;✓ No external telemetry vendor in the remediation</div>
           </div>
         </div>
       </div>
@@ -718,14 +722,14 @@
           <div class="sla-card-desc">Security incident notification targets 24 elapsed hours after confirmation, subject to incident validation and available contact details.</div>
         </div>
         <div class="sla-card">
-          <div class="sla-card-num">0 KB</div>
-          <div class="sla-card-label">Zero Telemetry Egress</div>
-          <div class="sla-card-desc">No external analytics, tracking pixels, or third-party behavioral beacons exist in our codebases.</div>
+          <div class="sla-card-num">Forge</div>
+          <div class="sla-card-label">Operational Diagnostics</div>
+          <div class="sla-card-desc">The Sprint Scope Guard remediation uses minimal application messages. Forge adds platform metadata; logs are not anonymous. No external telemetry vendor is introduced.</div>
         </div>
         <div class="sla-card">
-          <div class="sla-card-num">Art. 28</div>
-          <div class="sla-card-label">GDPR Legal Compliance</div>
-          <div class="sla-card-desc">Designed to support GDPR obligations and the Atlassian Data Processing Addendum; customers remain responsible for their own compliance assessment.</div>
+          <div class="sla-card-num">Review</div>
+          <div class="sla-card-label">Privacy & Contracts</div>
+          <div class="sla-card-desc">Forge hosting does not establish the operator's legal role or an app certification. Review documented data handling and applicable contracts before deployment.</div>
         </div>
       </div>
     </div>

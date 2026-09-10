@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Partner Security Policy — Neural Void</title>
-  <meta name="description" content="Partner security policy for Neural Void products and Atlassian Cloud Forge applications. Details on Zero-Egress architecture, incident response, and vulnerability management.">
+  <title>Sprint Scope Guard Security Boundary — Neural Void</title>
+  <meta name="description" content="Technical security-boundary information for Sprint Scope Guard on Atlassian Forge.">
   <link rel="canonical" href="https://neural-void.com/security/">
-  <meta property="og:title" content="Partner Security Policy — Neural Void">
-  <meta property="og:description" content="Enterprise security, incident response, and vulnerability management policy for Neural Void Atlassian Cloud Forge apps.">
+  <meta property="og:title" content="Sprint Scope Guard Security Boundary — Neural Void">
+  <meta property="og:description" content="Technical security-boundary information for Sprint Scope Guard on Atlassian Forge.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://neural-void.com/security/">
   <meta property="og:image" content="https://neural-void.com/assets/img/og-cover.png">
@@ -90,101 +90,57 @@
 
   <section class="section" style="padding-top: 140px; padding-bottom: 80px;">
     <div class="container reveal">
-      <span class="security-badge">🛡️ Partner Security & Architecture Standards</span>
-      <h1 class="section-title">Security & Vulnerability Management Policy</h1>
+      <span class="security-badge">🛡️ Security Information</span>
+      <h1 class="section-title">Sprint Scope Guard Security Boundary</h1>
       <div class="section-text" style="max-width: 820px; line-height: 1.8;">
         <p><strong>Vendor:</strong> Neural Void | <strong>Platform:</strong> Atlassian Cloud Ecosystem | <strong>Last Updated:</strong> September 2026</p>
+        <p style="margin-top: 12px;"><strong>Version caveat:</strong> The implementation details below describe reviewed remediation source version 3.4.1, which has not been released to production. As of 10 September 2026, the latest listed public version is 3.2.0. Earlier deployed webhook tests included a project key and earlier logging may contain raw data. Check the installed version before relying on the remediation descriptions.</p>
         <p style="margin-top: 12px;">
-          This Security Policy establishes the operational, architectural, and governance standards applied by Neural Void across all our digital products and enterprise Atlassian Cloud Forge applications (including <em>Sprint Scope Guard & Agile JQL Pro</em>, <em>Smart Defaults & DoD Guard</em>, and <em>JSM Outgoing Email Audit</em>).
+          This page explains the data flow and security controls for <em>Sprint Scope Guard & Agile JQL Pro</em>.
         </p>
 
         <!-- SECTION 1: ARCHITECTURE -->
         <div class="sec-card">
-          <h4>1. Zero-Egress Architecture & Infrastructure Security</h4>
+          <h4>1. Application data flow</h4>
           <p>
-            All Neural Void Jira applications are built on the <strong>Atlassian Forge serverless runtime</strong>. Marketplace review is in progress; any Runs on Atlassian eligibility is subject to Atlassian verification. Neural Void makes no independent certification claim.
+            Sprint Scope Guard is a Jira Cloud Forge app. It uses the Jira and Forge storage permissions declared in its manifest to provide the current-sprint scope audit and authorized scope actions.
           </p>
           <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc; color: var(--nv-text);">
-            <li style="margin-bottom: 6px;"><strong>Zero External Data Egress:</strong> Our applications do not maintain external application servers, third-party databases, or external analytics endpoints. Compute operations execute entirely inside Atlassian-managed isolated serverless sandboxes.</li>
-            <li style="margin-bottom: 6px;"><strong>Isolated App Storage:</strong> Configuration parameters, sprint baselines, and project settings are stored exclusively in <strong>Atlassian Forge Key-Value Storage (KVS)</strong>, partitioned and isolated per customer tenant.</li>
-            <li style="margin-bottom: 6px;"><strong>Encryption at Rest and in Transit:</strong> All customer data is encrypted in transit using TLS 1.3 and at rest using industry-standard AES-256 encryption managed directly by Atlassian Cloud / AWS infrastructure.</li>
-            <li style="margin-bottom: 6px;"><strong>Data Residency:</strong> All data storage automatically inherits your Jira instance's designated data residency region (EU, US, Germany, etc.). Customer data never crosses regional boundaries without explicit administrator configuration.</li>
+            <li style="margin-bottom: 6px;"><strong>Forge storage:</strong> Forge KVS stores settings and governance records, including Jira removal details, summaries, statuses, priorities, and account IDs; retained historical records can include display names. See Atlassian's <a href="https://developer.atlassian.com/platform/forge/storage-reference/" target="_blank" rel="noopener">Forge storage reference</a>.</li>
+            <li style="margin-bottom: 6px;"><strong>Exports:</strong> CSV, JSON, and Markdown exports are created in the user's browser.</li>
+            <li style="margin-bottom: 6px;"><strong>Retention and residency:</strong> Forge-hosted data is retained for up to 28 days after uninstallation. Recovery requires a request within 21 days and does not occur automatically on reinstall. Forge documents hosted-storage residency behavior in its <a href="https://developer.atlassian.com/platform/forge/data-residency/" target="_blank" rel="noopener">data-residency documentation</a>.</li>
           </ul>
         </div>
 
         <!-- SECTION 2: APPLICATION ACCESS CONTROLS -->
         <div class="sec-card">
-          <h4>2. Application Security Controls & Least Privilege</h4>
+          <h4>2. Scope-action and webhook controls</h4>
           <p>
-            We implement defense-in-depth principles to protect customer project data and permissions:
+            Sprint Scope Guard applies these controls:
           </p>
           <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc; color: var(--nv-text);">
-            <li style="margin-bottom: 6px;"><strong>User Context Enforcement (asUser):</strong> Documented Jira REST reads and writes use the calling user context (<code>asUser()</code>) where applicable, respecting Jira project permissions and user roles.</li>
-            <li style="margin-bottom: 6px;"><strong>Administrative Authorization Gates:</strong> Documented mutating administrative settings and Scope Swap operations require verified Jira <code>ADMINISTER_PROJECTS</code> privileges; authorization is checked at the resolver boundary.</li>
-            <li style="margin-bottom: 6px;"><strong>Anti-Injection & Sanitization:</strong> Input parameters and JQL queries undergo strict regular expression validation to prevent JQL injection. CSV data exports enforce formula injection escaping against DDE attacks.</li>
+            <li style="margin-bottom: 6px;"><strong>Scope actions:</strong> Sensitive actions are server-side and verify project access and issue/project binding before a scope change.</li>
+            <li style="margin-bottom: 6px;"><strong>Webhook validation:</strong> The URL filter requires HTTPS, rejects embedded credentials, and rejects localhost, private/internal, loopback, link-local, metadata, and other non-public address forms.</li>
+            <li style="margin-bottom: 6px;"><strong>Manual webhook test:</strong> A project administrator may test an approved Slack or Microsoft Teams endpoint. The test sends generic text and a timestamp only; the app has no automatic threshold or scope notifications. Forge allowlists only <code>hooks.slack.com</code> and <code>*.webhook.office.com</code> for this backend egress.</li>
           </ul>
         </div>
 
-        <!-- SECTION 3: VULNERABILITY MANAGEMENT -->
+        <!-- SECTION 3: MARKETPLACE AVAILABILITY -->
         <div class="sec-card">
-          <h4>3. Vulnerability Management & Patching SLA</h4>
+          <h4>3. Marketplace availability</h4>
           <p>
-            Neural Void maintains proactive vulnerability management to discover, assess, and remediate security issues continuously:
-          </p>
-          <ul style="margin-top: 10px; padding-left: 20px; list-style-type: disc; color: var(--nv-text);">
-            <li style="margin-bottom: 6px;"><strong>Automated Scanning:</strong> Automated scans via Atlassian Ecoscanner, npm audit, and automated static application security testing (SAST) run prior to every production release.</li>
-            <li style="margin-bottom: 6px;"><strong>Dependency Hygiene:</strong> Third-party dependencies are pinned to verified versions and scanned against the National Vulnerability Database (NVD).</li>
-          </ul>
-
-          <div class="security-table-scroll" role="region" aria-label="Security remediation targets; scroll horizontally on smaller screens" tabindex="0">
-          <table class="sla-table">
-            <thead>
-              <tr>
-                <th>Vulnerability Severity</th>
-                <th>CVSS v3 Score</th>
-                <th>Remediation & Patch SLA</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="color: #ff5630; font-weight: 600;">Critical</td>
-                <td>9.0 – 10.0</td>
-                <td><strong>Target: 48 elapsed hours after validation</strong></td>
-              </tr>
-              <tr>
-                <td style="color: #ffab00; font-weight: 600;">High</td>
-                <td>7.0 – 8.9</td>
-                <td><strong>Target: 7 business days</strong></td>
-              </tr>
-              <tr>
-                <td style="color: #36b37e;">Medium</td>
-                <td>4.0 – 6.9</td>
-                <td><strong>Within 30 Calendar Days</strong></td>
-              </tr>
-              <tr>
-                <td>Low</td>
-                <td>0.1 – 3.9</td>
-                <td>Next regular maintenance release</td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
-          <p style="margin-top: 12px; font-size: 0.85rem; color: var(--nv-text-dim);">
-            These remediation windows are targets, not guarantees. Elapsed hours include nights and weekends. Business days follow the Europe/Berlin support schedule (Monday–Friday, excluding public holidays in North Rhine-Westphalia); see <a href="/support/">Support &amp; SLA</a>. Deployment timing depends on validation, review, and Atlassian Forge release behavior.
+            The Marketplace listing is under review. Availability and current pricing are published through <a href="https://marketplace.atlassian.com/apps/2853571084?tab=pricing&amp;hosting=cloud" target="_blank" rel="noopener">Atlassian Marketplace</a>. Neural Void makes no certification or compliance-attestation claim.
           </p>
         </div>
 
-        <!-- SECTION 4: INCIDENT MANAGEMENT -->
+        <!-- SECTION 4: OPERATIONAL LOGGING AND REPORTING -->
         <div class="sec-card">
-          <h4>4. Security Incident Management & Notification Procedure</h4>
+          <h4>4. Operational logging and security reporting</h4>
           <p>
-            In the event of a suspected or confirmed security incident:
+            Application diagnostics contain only an allowlisted operation and code, a release label, a random per-request UUID, and duration. They do not contain Jira content, user data, site data, webhook data, or hashes. Forge automatically adds installation-site, version, environment, invocation, and other platform metadata, so logs are not anonymous. Access depends on customer log-sharing settings and the applicable Atlassian cloud offering; Forge makes app logs available for 30 days. No external telemetry vendor, session replay, or Forge frontend-log EAP is configured. See <a href="https://developer.atlassian.com/platform/forge/view-app-logs/" target="_blank" rel="noopener">Forge app logs</a> and <a href="https://developer.atlassian.com/platform/forge/logging-guidelines/" target="_blank" rel="noopener">logging guidelines</a>.
           </p>
-          <ol style="margin-top: 10px; padding-left: 20px; color: var(--nv-text);">
-            <li style="margin-bottom: 6px;"><strong>Triage & Containment:</strong> The response process assesses the affected module and, where feasible, applies mitigations in the Forge production environment.</li>
-            <li style="margin-bottom: 6px;"><strong>Customer Notification (24 elapsed-hour target):</strong> If an incident poses any risk to tenant configuration or security boundaries, Neural Void aims to notify affected administrators and Atlassian Security within <strong>24 elapsed hours</strong> of incident confirmation.</li>
-            <li style="margin-bottom: 6px;"><strong>Root Cause Analysis (RCA):</strong> A comprehensive Root Cause Analysis detailing findings, timeline, and corrective actions will be published within 5 business days.</li>
-          </ol>
+          <p style="margin-top: 10px;">Report suspected vulnerabilities with the affected product, error code, approximate time, reproduction steps, and non-sensitive evidence. Redact unrelated Jira content; do not send passwords, API tokens, or webhook URLs.</p>
+          <p style="margin-top: 10px;"><strong>Response targets:</strong> Critical vulnerabilities target remediation within 48 elapsed hours after validation; High within 7 business days; Medium within 30 calendar days; Low in a maintenance release. For confirmed incidents affecting security boundaries, we aim to notify affected administrators and Atlassian Security within 24 elapsed hours after confirmation. These are targets, not guarantees or proof of automatic incident detection. Business days follow the <a href="/support/">published support schedule</a>; release timing depends on validation and Atlassian review.</p>
         </div>
 
         <!-- SECTION 5: RESPONSIBLE DISCLOSURE & CONTACT -->
@@ -212,7 +168,7 @@
         <div class="footer-col">
           <div class="footer-brand">NEURAL<span>VOID</span></div>
           <p class="footer-desc">
-            Independent software lab creating zero-egress Atlassian Cloud apps, private speech tools, and generative systems.
+            Independent software lab creating Atlassian Cloud apps, private speech tools, and generative systems.
           </p>
         </div>
         <div class="footer-col">
@@ -228,7 +184,7 @@
           <h4>Governance & Support</h4>
           <ul>
             <li><a href="/security/">Security Architecture</a></li>
-            <li><a href="/support/">Support & SLAs</a></li>
+            <li><a href="/support/">Support Contact</a></li>
             <li><a href="/privacy/">Privacy Policy</a></li>
             <li><a href="/terms/">Terms of Service</a></li>
           </ul>

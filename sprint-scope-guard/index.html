@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Sprint Scope Guard & Agile JQL Pro — Neural Void</title>
-  <meta name="description" content="Scrum Scope Creep Sentinel, 1-Click Scope Swap capacity balancer, and custom JQL functions for Jira Cloud. Zero-data-egress Forge architecture.">
+  <meta name="description" content="Audit scope changes in the active or planned Jira Scrum sprint, with authorized Scope Swap actions, exports, and custom JQL functions.">
   <link rel="canonical" href="https://neural-void.com/sprint-scope-guard/">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Sprint Scope Guard & Agile JQL Pro — Neural Void">
-  <meta property="og:description" content="Scrum Scope Creep Sentinel, 1-Click Scope Swap capacity balancer, and custom JQL functions for Jira Cloud. Zero-data-egress Forge architecture.">
+  <meta property="og:description" content="Audit scope changes in the active or planned Jira Scrum sprint, with authorized Scope Swap actions, exports, and custom JQL functions.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://neural-void.com/sprint-scope-guard/">
   <meta property="og:image" content="https://neural-void.com/assets/img/og-cover.png">
@@ -18,7 +18,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Sprint Scope Guard & Agile JQL Pro — Neural Void">
-  <meta name="twitter:description" content="Scrum Scope Creep Sentinel, 1-Click Scope Swap capacity balancer, and custom JQL functions for Jira Cloud.">
+  <meta name="twitter:description" content="Audit scope changes in the active or planned Jira Scrum sprint with Scope Swap actions, exports, and custom JQL functions.">
   <meta name="twitter:image" content="https://neural-void.com/assets/img/og-cover.png">
 
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
@@ -112,7 +112,7 @@
           <li><a href="/verbum/">Verbum</a></li>
           <li><a href="/foldwink/">Foldwink</a></li>
           <li><a href="/privacy/">Privacy</a></li>
-          <li><a href="mailto:hello@neural-void.com" class="btn btn-ghost" style="padding: 6px 16px;">Support</a></li>
+          <li><a href="mailto:support@neural-void.com" class="btn btn-ghost" style="padding: 6px 16px;">Support</a></li>
         </ul>
         <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
       </nav>
@@ -126,9 +126,8 @@
       <div style="max-width: 820px;" class="reveal">
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
           <span class="badge-chip">⚡ Jira Cloud Forge App</span>
-          <span class="badge-chip" style="color: #4ade80; border-color: rgba(74, 222, 128, 0.3); background: rgba(74, 222, 128, 0.08);">🛡️ 100% Forge Native</span>
-          <span class="badge-chip" style="color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); background: rgba(251, 191, 36, 0.08);">⏳ Marketplace Review In Progress</span>
-          <span class="badge-chip" style="color: #c084fc; border-color: rgba(192, 132, 252, 0.3); background: rgba(192, 132, 252, 0.08);">🔒 Zero Data Egress</span>
+          <span class="badge-chip" style="color: #4ade80; border-color: rgba(74, 222, 128, 0.3); background: rgba(74, 222, 128, 0.08);">🛡️ Forge-hosted Jira app</span>
+          <span class="badge-chip" style="color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); background: rgba(251, 191, 36, 0.08);">⏳ Marketplace review pending</span>
         </div>
 
         <h1 class="hero-title">
@@ -136,7 +135,7 @@
         </h1>
         
         <p class="hero-sub">
-          Real-time Scrum scope creep radar, 1-Click Smart Scope Swap («1-In-1-Out»), predictive goal blowout timeline, and AI retrospective summaries directly inside your Jira Cloud boards.
+          Inspect scope changes in the active or planned Scrum sprint, review remaining-baseline, added, and removed work, and take authorized Scope Swap actions inside Jira Cloud.
         </p>
 
         <div class="hero-actions">
@@ -153,7 +152,7 @@
   <section class="lang-bar">
     <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
       <div style="font-size: 0.9rem; color: var(--nv-text-dim); font-family: var(--nv-font-mono);">
-        Product Overview Documentation &bull; v1.0.0 Release Candidate
+        Current-sprint scope audit &bull; As reviewed 10 September 2026: local remediation source 3.4.1 is not public; latest listed Marketplace version 3.2.0. Review pending.
       </div>
       <div>
         <div class="lang-switcher-pill">
@@ -175,36 +174,39 @@
           <span class="section-label">Core Pillars</span>
           <h2 class="section-title">Engineered for High-Discipline Scrum Teams</h2>
           <p class="section-text">
-            Sprints don't fail at retro — they fail mid-week when unplanned tickets quietly blow the commitment baseline.
+            Review the scope that matters now: an active sprint or a planned sprint in the backlog.
+          </p>
+          <p class="section-text" style="font-size: 0.9rem;">
+            Scope boundary: no closed-sprint history, sprint-failure forecast, what-if velocity simulator, or AI root-cause analysis.
           </p>
         </div>
 
         <div class="cards-grid">
           <div class="feature-card reveal">
-            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">📡 Responsive SWR Board Cache</h3>
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">📡 Current and Planned Sprint Audit</h3>
             <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
-              Client-side SWR caching keeps the UI responsive while data is revalidated against Jira REST APIs in the background without blocking your workflow. Visual color-coded alerts warn you when additions exceed safety thresholds (🟢 15% Healthy ➔ 🟡 25% Warning ➔ 🔴 Critical Goal Risk).
+              Open the active Scrum sprint or a planned sprint in the backlog. The dashboard uses Jira issue and changelog data from the project being viewed; when relevant data is absent, it shows an empty state.
             </p>
           </div>
 
           <div class="feature-card reveal">
-            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">⚖️ 1-Click Smart Scope Swap</h3>
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">⚖️ Authorized Scope Swap</h3>
             <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
-              When stakeholders inject an urgent 5 SP mandate, don't break commitments — swap! In 1 click, the assistant identifies and deschedules equivalent To-Do tasks back to the backlog to restore 100% capacity balance.
+              Select an injected issue and one or more baseline issues. With the Jira permissions required for the action, Scope Swap records the injected issue's approval and moves the selected baseline issues back to the backlog. The app does not choose issues or act automatically.
             </p>
           </div>
 
           <div class="feature-card reveal">
-            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">🔮 Predictive Breach Forecasting</h3>
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">📊 Remaining Baseline</h3>
             <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
-              Tracks Story Points injected per calendar day and estimates delivery risk from observed scope growth. Includes an interactive What-If velocity simulator; estimates are scenarios, not guaranteed delivery dates.
+              Separate the remaining members that were in the sprint at its start from later additions and recorded removals. The baseline denominator excludes work that has since left the sprint; it is not an original-commitment snapshot.
             </p>
           </div>
 
           <div class="feature-card reveal">
-            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">📝 AI Retrospective Compiler</h3>
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">📝 Current-Sprint Summary and Exports</h3>
             <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
-              Generates executive Markdown retrospectives for Confluence and Slack. Automatically classifies scope creep root causes (Security Hotfixes vs Sales Mandates vs Feature Creep).
+              Review baseline, injected, and removed/descheduled lists with Jira-derived audit details, then export the displayed current-sprint data as CSV, JSON, or Markdown. The summary does not use AI or assign root causes.
             </p>
           </div>
 
@@ -215,12 +217,19 @@
             </p>
             <div class="code-pill"><code>issue in addedToSprintAfterStart()</code></div>
             <div class="code-pill"><code>issue in removedFromSprint()</code></div>
+            <div class="code-pill"><code>issue in hasUnresolvedSubtasks()</code></div>
           </div>
 
           <div class="feature-card reveal">
-            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">🔒 Zero External Data Egress</h3>
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">🔗 Optional Manual Webhook Test</h3>
             <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
-              Built 100% on the Atlassian Forge serverless runtime. Your issue keys, titles, and story point estimates stay completely inside your Jira Cloud tenant. Atlassian operates the underlying infrastructure; this is not an independent certification of Sprint Scope Guard.
+              In the reviewed remediation source, a project administrator may manually test a supported Slack or Microsoft Teams webhook. The test sends only generic static text and a timestamp; it sends no automatic alerts. Forge egress is allowlisted to <code>hooks.slack.com</code> and <code>*.webhook.office.com</code>.
+            </p>
+          </div>
+          <div class="feature-card reveal">
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">💳 Marketplace Pricing</h3>
+            <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
+              All customers receive the same functions: free for up to 10 users, then $1.36 per user/month for 11–100 users. Larger teams receive Marketplace volume rates; Marketplace manages billing and any checkout terms.
             </p>
           </div>
         </div>
@@ -232,36 +241,39 @@
           <span class="section-label">Kernfunktionen</span>
           <h2 class="section-title">Entwickelt für disziplinierte Scrum-Teams</h2>
           <p class="section-text">
-            Sprints scheitern nicht bei der Retrospektive — sie scheitern unter der Woche, wenn ungeplante Tickets die Planungsgrundlage sprengen.
+            Prüfen Sie den Umfang, der jetzt zählt: einen aktiven Sprint oder einen geplanten Sprint im Backlog.
+          </p>
+          <p class="section-text" style="font-size: 0.9rem;">
+            Funktionsgrenze: keine Historie abgeschlossener Sprints, keine Prognose eines Sprint-Fehlschlags, kein Was-wäre-wenn-Geschwindigkeitssimulator und keine KI-Ursachenanalyse.
           </p>
         </div>
 
         <div class="cards-grid">
           <div class="feature-card reveal">
-            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">📡 Sofortiger SWR-Board-Cache</h3>
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">📡 Prüfung aktiver und geplanter Sprints</h3>
             <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
-              Client-seitiger SWR-Cache sorgt für sofortige Reaktionsfähigkeit der Oberfläche, validiert im Hintergrund gegen Jira REST-APIs. Visuelle Warnstufen (🟢 15% Normal ➔ 🟡 25% Warnung ➔ 🔴 Kritisches Risiko).
+              Öffnen Sie den aktiven Scrum-Sprint oder einen geplanten Sprint im Backlog. Das Dashboard verwendet Jira-Issue- und Changelog-Daten des angezeigten Projekts und zeigt bei fehlenden Daten einen leeren Zustand.
             </p>
           </div>
 
           <div class="feature-card reveal">
-            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">⚖️ 1-Klick Smart Scope Swap</h3>
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">⚖️ Autorisierter Scope Swap</h3>
             <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
-              Dringende Aufgabe hinzugefügt? Mit 1 Klick werden To-Do-Tickets mit gleicher Story-Point-Zahl zurück ins Backlog verschoben, um das Gleichgewicht wiederherzustellen.
+              Wählen Sie ein hinzugefügtes Issue und ein oder mehrere Baseline-Issues. Mit den dafür erforderlichen Jira-Berechtigungen dokumentiert Scope Swap die Genehmigung des hinzugefügten Issues und verschiebt die gewählten Baseline-Issues zurück ins Backlog. Die App wählt keine Issues und handelt nicht automatisch.
             </p>
           </div>
 
           <div class="feature-card reveal">
-            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">🔮 Prognose von Zielüberschreitungen</h3>
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">📊 Verbleibende Baseline</h3>
             <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
-              Schätzt anhand der beobachteten täglichen Zuwachsrate das Risiko für das Sprint-Ziel. Der Was-Wäre-Wenn-Simulator zeigt Szenarien, keine garantierten Liefertermine.
+              Trennt die noch im Sprint vorhandenen Mitglieder vom Sprintstart von späteren Ergänzungen und erfassten Entfernungen. Der Baseline-Nenner schließt Arbeit aus, die den Sprint verlassen hat; er ist keine gespeicherte Ursprungszusage.
             </p>
           </div>
 
           <div class="feature-card reveal">
-            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">📝 KI-Retrospektiven Generator</h3>
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">📝 Aktuelle Sprint-Zusammenfassung und Exporte</h3>
             <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
-              Erstellt strukturierte Markdown-Zusammenfassungen für Confluence mit automatischer Ursachenanalyse von Sprint-Erweiterungen.
+              Prüfen Sie Baseline-, hinzugefügte und entfernte/ausgeplante Aufgaben mit Jira-basierten Auditdetails und exportieren Sie die angezeigten Daten als CSV, JSON oder Markdown. Die Zusammenfassung nutzt keine KI und weist keine Ursachen zu.
             </p>
           </div>
 
@@ -272,12 +284,19 @@
             </p>
             <div class="code-pill"><code>issue in addedToSprintAfterStart()</code></div>
             <div class="code-pill"><code>issue in removedFromSprint()</code></div>
+            <div class="code-pill"><code>issue in hasUnresolvedSubtasks()</code></div>
           </div>
 
           <div class="feature-card reveal">
-            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">🔒 Null Datenabfluss (Zero Egress)</h3>
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">🔗 Optionaler manueller Webhook-Test</h3>
             <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
-              Vollständig auf Atlassian Forge gehostet. Ihre Daten verlassen niemals Ihre Atlassian Cloud Umgebung. Atlassian betreibt die zugrunde liegende Infrastruktur; dies ist keine unabhängige Zertifizierung von Sprint Scope Guard.
+              Im geprüften Remediation-Quellstand kann ein Projektadministrator einen unterstützten Slack- oder Microsoft-Teams-Webhook manuell testen. Der Test sendet nur einen generischen statischen Text und einen Zeitstempel, keine automatischen Warnungen. Forge-Egress ist auf <code>hooks.slack.com</code> und <code>*.webhook.office.com</code> beschränkt.
+            </p>
+          </div>
+          <div class="feature-card reveal">
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">💳 Marketplace-Preis</h3>
+            <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
+              Alle Kunden erhalten dieselben Funktionen: kostenlos für bis zu 10 Nutzer, danach 1,36 $ pro Nutzer/Monat für 11–100 Nutzer. Für größere Teams gelten Marketplace-Staffelpreise; Marketplace verwaltet Abrechnung und Checkout-Bedingungen.
             </p>
           </div>
         </div>
@@ -289,36 +308,39 @@
           <span class="section-label">Ключевые возможности</span>
           <h2 class="section-title">Инструмент дисциплины для Scrum-команд</h2>
           <p class="section-text">
-            Спринты срываются не на ретроспективе — они ломаются в середине недели, когда несанкционированные задачи раздувают плановый скоуп.
+            Проверяйте объём, который важен сейчас: активный спринт или запланированный спринт в бэклоге.
+          </p>
+          <p class="section-text" style="font-size: 0.9rem;">
+            Граница функций: нет истории закрытых спринтов, прогноза срыва спринта, симулятора скорости «что если» и ИИ-анализа первопричин.
           </p>
         </div>
 
         <div class="cards-grid">
           <div class="feature-card reveal">
-            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">📡 Мгновенный SWR-кэш доски</h3>
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">📡 Проверка активного и запланированного спринта</h3>
             <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
-              Клиентский SWR-кэш мгновенно отрисовывает состояние доски и фоново актуализирует данные через REST API Jira без блокировки интерфейса (🟢 15% Норма ➔ 🟡 25% Внимание ➔ 🔴 Критический риск).
+              Откройте активный Scrum-спринт или запланированный спринт в бэклоге. Панель использует данные задач и changelog Jira выбранного проекта и показывает пустое состояние, когда данных нет.
             </p>
           </div>
 
           <div class="feature-card reveal">
-            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">⚖️ 1-Click Smart Scope Swap</h3>
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">⚖️ Авторизованный Scope Swap</h3>
             <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
-              Пришел срочный запрос на +5 SP? Не ломайте спринт — помощник в 1 клик находит и выгружает To-Do задачи обратно в бэклог, восстанавливая баланс 100%.
+              Выберите добавленную задачу и одну или несколько базовых задач. При наличии разрешений Jira для действия Scope Swap фиксирует одобрение добавленной задачи и переносит выбранные базовые задачи обратно в бэклог. Приложение не выбирает задачи и не действует автоматически.
             </p>
           </div>
 
           <div class="feature-card reveal">
-            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">🔮 Предиктивный расчет срыва дедлайна</h3>
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">📊 Оставшийся базовый объём</h3>
             <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
-              Анализирует наблюдаемую скорость раздувания скоупа (SP/день) и оценивает риск для цели спринта. Интерактивный «Что-если» симулятор показывает сценарии, а не гарантированную дату поставки.
+              Отделяет оставшиеся задачи, присутствовавшие в спринте на старте, от поздних добавлений и зафиксированных удалений. В знаменатель базового объёма не входит работа, которая уже вышла из спринта; это не сохранённый исходный коммитмент.
             </p>
           </div>
 
           <div class="feature-card reveal">
-            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">📝 Авто-компилятор Ретро-отчетов</h3>
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">📝 Сводка текущего спринта и экспорт</h3>
             <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
-              Генерирует готовый отчет в Markdown для Confluence с разбивкой причин вбросов (Багфиксы vs Бизнес-требования vs Неучтенный скоуп).
+              Проверяйте списки базового объёма, добавленных и удалённых/перенесённых задач с деталями аудита Jira и экспортируйте показанные данные в CSV, JSON или Markdown. Сводка не использует ИИ и не назначает причины изменений.
             </p>
           </div>
 
@@ -329,12 +351,19 @@
             </p>
             <div class="code-pill"><code>issue in addedToSprintAfterStart()</code></div>
             <div class="code-pill"><code>issue in removedFromSprint()</code></div>
+            <div class="code-pill"><code>issue in hasUnresolvedSubtasks()</code></div>
           </div>
 
           <div class="feature-card reveal">
-            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">🔒 Нулевая утечка данных (Zero Data Egress)</h3>
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">🔗 Необязательный ручной тест webhook</h3>
             <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
-              100% Serverless на платформе Atlassian Forge. Ваши тикеты и оценки никогда не покидают облако Atlassian, используя инфраструктуру Atlassian. Это не означает независимой сертификации Sprint Scope Guard.
+              В проверенном remediation-исходнике администратор проекта может вручную протестировать поддерживаемый webhook Slack или Microsoft Teams. Тест отправляет только общий статический текст и метку времени, без автоматических оповещений. Egress Forge ограничен allowlist: <code>hooks.slack.com</code> и <code>*.webhook.office.com</code>.
+            </p>
+          </div>
+          <div class="feature-card reveal">
+            <h3 style="color: var(--nv-white); font-size: 1.25rem; margin-bottom: 12px;">💳 Цена Marketplace</h3>
+            <p style="color: var(--nv-text-dim); font-size: 0.95rem; line-height: 1.6;">
+              Все клиенты получают одинаковые функции: бесплатно до 10 пользователей, затем $1.36 за пользователя в месяц для 11–100 пользователей. Для больших команд действуют объёмные ставки Marketplace; Marketplace управляет оплатой и условиями checkout.
             </p>
           </div>
         </div>
@@ -349,7 +378,7 @@
       <span class="section-label">Pilot Access</span>
       <h2 class="section-title">Request Private Pilot for Your Jira Cloud Instance</h2>
       <p class="section-text" style="margin: 0 auto 32px auto;">
-        Sprint Scope Guard is currently undergoing Atlassian Marketplace listing review. You can evaluate the release build on your Jira Cloud staging or production environment today.
+        Marketplace review is pending. The latest listed public Marketplace version is 3.2.0. This page documents the reviewed local remediation source labelled 3.4.1; it is not a production or public Marketplace release.
       </p>
       <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
         <a href="mailto:pilot@neural-void.com?subject=Sprint%20Scope%20Guard%20Pilot%20Request" class="btn btn-primary" style="padding: 14px 32px; font-weight: 600;">
@@ -372,7 +401,7 @@
           <li><a href="/verbum/">Verbum</a></li>
           <li><a href="/foldwink/">Foldwink</a></li>
           <li><a href="/privacy/">Privacy Policy</a></li>
-          <li><a href="mailto:hello@neural-void.com">Support</a></li>
+          <li><a href="mailto:support@neural-void.com">Support</a></li>
         </ul>
       </div>
     </div>

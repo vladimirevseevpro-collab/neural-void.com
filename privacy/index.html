@@ -7,7 +7,7 @@
   <meta name="description" content="Privacy policy for Neural Void products and Atlassian Cloud Forge applications.">
   <link rel="canonical" href="https://neural-void.com/privacy/">
   <meta property="og:title" content="Privacy Policy — Neural Void">
-  <meta property="og:description" content="Privacy policy for Neural Void products and Atlassian Cloud Forge applications. Zero-data-egress architecture.">
+  <meta property="og:description" content="Privacy and data-handling information for Sprint Scope Guard on Atlassian Forge.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://neural-void.com/privacy/">
   <meta property="og:image" content="https://neural-void.com/assets/img/og-cover.png">
@@ -39,37 +39,39 @@
 
   <section class="section" style="padding-top: 140px;">
     <div class="container reveal">
-      <span class="section-label">Legal & Security</span>
+      <span class="section-label">Data Handling</span>
       <h1 class="section-title">Privacy Policy</h1>
       <div class="section-text" style="max-width: 760px; line-height: 1.8;">
-        <p><strong>Last updated:</strong> August 2026</p>
+        <p><strong>Last updated:</strong> September 2026</p>
+        <p style="margin-top: 8px;"><strong>Version caveat:</strong> The implementation details below describe reviewed remediation source version 3.4.1, which has not been released to production. As of 10 September 2026, the latest listed public version is 3.2.0. Earlier deployed webhook tests included a project key and earlier logging may contain raw data. Check the installed version before relying on the remediation descriptions.</p>
 
         <!-- ATLASSIAN FORGE APPS PRIVACY SECTION -->
-        <h3 style="margin-top: 36px; color: var(--nv-white); font-size: 1.3rem;">Atlassian Jira Cloud & Forge Applications</h3>
+        <h3 style="margin-top: 36px; color: var(--nv-white); font-size: 1.3rem;">Sprint Scope Guard</h3>
         <p style="margin-top: 8px;">
-          Neural Void builds enterprise applications for the <strong>Atlassian Cloud ecosystem</strong> using the official <strong>Atlassian Forge</strong> serverless architecture (including <em>Sprint Scope Guard & Agile JQL Pro</em>, <em>Smart Defaults & DoD Guard</em>, and <em>JSM Outgoing Email Audit</em>).
+          Sprint Scope Guard is a Jira Cloud Forge app. It reads Jira sprint, issue, and changelog data for the current-sprint scope audit and uses Forge-hosted storage for application state.
         </p>
         <ul style="margin-top: 12px; padding-left: 20px; list-style-type: disc; color: var(--nv-text);">
-          <li style="margin-bottom: 8px;"><strong>Zero External Data Egress:</strong> Our Forge applications execute strictly within Atlassian's secure cloud multi-tenant infrastructure. Your Jira issues, project metadata, user profiles, and story point logs never leave your Atlassian Cloud tenant.</li>
-          <li style="margin-bottom: 8px;"><strong>No External Servers or Storage:</strong> We do not operate external databases, tracking servers, or log aggregators for app issue data. Application states are stored solely in Atlassian Forge Hosted Storage (KVS / App Storage).</li>
-          <li style="margin-bottom: 8px;"><strong>No Data Resale or Advertising:</strong> We do not track, profile, resell, or monetize customer data.</li>
-          <li style="margin-bottom: 8px;"><strong>GDPR & Security Compliance:</strong> Data residency and access control strictly inherit your Atlassian Cloud organization's security and privacy boundaries.</li>
+          <li style="margin-bottom: 8px;"><strong>Forge-hosted storage:</strong> Forge KVS stores app settings and governance records. Records can include Jira issue summaries, statuses, priorities, removal details, and account IDs; retained historical records can include display names. This data is stored in Forge-hosted storage, not an external Neural Void database. See Atlassian's <a href="https://developer.atlassian.com/platform/forge/storage-reference/" target="_blank" rel="noopener" style="color: var(--nv-accent);">Forge storage reference</a>.</li>
+          <li style="margin-bottom: 8px;"><strong>Exports and manual webhook tests:</strong> CSV, JSON, and Markdown exports are generated in the browser. A project administrator may manually test a configured Slack or Microsoft Teams webhook; the test sends generic test text and a timestamp. The app does not automatically send scope or threshold notifications. The Forge egress allowlist is <code>hooks.slack.com</code> and <code>*.webhook.office.com</code>.</li>
+          <li style="margin-bottom: 8px;"><strong>Retention and residency:</strong> After uninstallation, Forge-hosted data is retained for up to 28 days. A new installation can be linked to the old data only when recovery is requested within 21 days; a reinstall does not automatically restore it. Forge documents hosted-storage residency behavior in its <a href="https://developer.atlassian.com/platform/forge/data-residency/" target="_blank" rel="noopener" style="color: var(--nv-accent);">data-residency documentation</a>.</li>
+          <li style="margin-bottom: 8px;"><strong>Operational logs:</strong> Our application messages contain only an allowlisted operation and code, a release label, a random per-request UUID, and duration. They do not contain Jira content, user data, site data, webhook data, or hashes. Forge also adds platform metadata such as installation site, app version, environment, and invocation identifiers, so logs are not anonymous. Developer access depends on the customer's log-sharing settings and the applicable Atlassian cloud offering. Forge app logs are available for 30 days; see <a href="https://developer.atlassian.com/platform/forge/view-app-logs/" target="_blank" rel="noopener" style="color: var(--nv-accent);">Forge app logs</a> and <a href="https://developer.atlassian.com/platform/forge/logging-guidelines/" target="_blank" rel="noopener" style="color: var(--nv-accent);">logging guidelines</a>. No external telemetry vendor, session replay, or Forge frontend-log EAP is configured.</li>
+          <li style="margin-bottom: 8px;"><strong>Use of customer data:</strong> We do not sell customer data or use it for advertising.</li>
         </ul>
 
         <!-- WEBSITE PRIVACY -->
         <h3 style="margin-top: 36px; color: var(--nv-white); font-size: 1.3rem;">Neural Void Website</h3>
         <p style="margin-top: 8px;">
-          This website (<code>neural-void.com</code>) does not use cookies, tracking pixels, or client-side analytics scripts. We do not collect personal data through the site itself.
+          This website (<code>neural-void.com</code>) is served through Cloudflare Pages and loads fonts from Google Fonts. Those providers may process request data under their own terms and policies.
         </p>
 
         <h3 style="margin-top: 24px; color: var(--nv-white);">Cloudflare Hosting</h3>
-        <p>This site is hosted on Cloudflare Pages. Cloudflare may collect basic server-side analytics (page views, country, referrer) without setting cookies or collecting personal identifiers. See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener" style="color: var(--nv-accent);">Cloudflare's Privacy Policy</a>.</p>
+        <p>See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener" style="color: var(--nv-accent);">Cloudflare's Privacy Policy</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color: var(--nv-accent);">Google's Privacy Policy</a> for their respective handling of website requests.</p>
 
         <h3 style="margin-top: 24px; color: var(--nv-white);">Contact Inquiries</h3>
-        <p>If you contact us via email (<code>hello@neural-void.com</code>), we receive your email address and message content. We use this strictly to respond to your support inquiry or partnership discussion.</p>
+        <p>If you contact us via email (<code>hello@neural-void.com</code>), we receive your email address and message content. We use this to respond to your inquiry and investigate the reported issue. Start with the error code, approximate time, and reproduction steps. Do not send passwords, API tokens, webhook URLs, or unrelated Jira content; redact screenshots before sharing them.</p>
 
-        <h3 style="margin-top: 24px; color: var(--nv-white);">Security & Data Protection Officer Contact</h3>
-        <p>For any security, compliance, or privacy questions: <a href="mailto:hello@neural-void.com" style="color: var(--nv-accent);">hello@neural-void.com</a></p>
+        <h3 style="margin-top: 24px; color: var(--nv-white);">Privacy and security contact</h3>
+        <p>For privacy questions contact <a href="mailto:hello@neural-void.com" style="color: var(--nv-accent);">hello@neural-void.com</a>; report suspected security issues to <a href="mailto:security@neural-void.com" style="color: var(--nv-accent);">security@neural-void.com</a>.</p>
       </div>
     </div>
   </section>
