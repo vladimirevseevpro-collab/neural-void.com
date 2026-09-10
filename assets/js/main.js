@@ -67,7 +67,7 @@
       }
 
       if (e.key === 'Tab' && navLinks.classList.contains('open') && mobileMenu()) {
-        const links = [toggle, ...navLinks.querySelectorAll('a:not([disabled])')];
+        const links = [...navLinks.querySelectorAll('a:not([disabled])'), toggle];
         if (!links.length) return;
         const first = links[0];
         const last = links[links.length - 1];
