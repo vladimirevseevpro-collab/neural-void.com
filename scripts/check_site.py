@@ -78,9 +78,13 @@ def main():
             syntax_checks += 1
             if result.returncode:
                 problems.append(f'{page.relative_to(OUT)} inline script {index}: {result.stderr}')
-    result = subprocess.run(['node', '--check', str(OUT / 'assets/js/main.js')], capture_output=True, text=True)
-    syntax_checks += 1
-    if result.returncode: problems.append(result.stderr)
+    for script in sorted(OUT.rglob('*.js')):
+        if script.relative_to(OUT).parts[0] == 'foldwink':
+            continue
+        result = subprocess.run(['node', '--check', str(script)], capture_output=True, text=True)
+        syntax_checks += 1
+        if result.returncode:
+            problems.append(f'{script.relative_to(OUT)}: {result.stderr}')
     print(json.dumps({'html_pages': len(docs), 'javascript_syntax_checks': syntax_checks, 'problems': problems}, indent=2))
     raise SystemExit(bool(problems))
 
